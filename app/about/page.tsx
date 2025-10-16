@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'About',
-    description: "We're a studio of strategists, directors, editors, and operators building content systems that compound."
+    description: 'We acquire, improve, and recycle high‑intent web assets—and build or revamp client sites to generate qualified leads.'
 };
 
 export default function AboutPage() {
@@ -17,30 +17,12 @@ export default function AboutPage() {
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">
                         About Orion Ascend
                     </h1>
-                    <p className="mt-4 text-center text-metal-text/80 max-w-2xl mx-auto">
-                        We're a studio of strategists, directors, editors, and operators who believe content is a system, not a service.
-                    </p>
+                    <p className="mt-4 text-center text-metal-text/80 max-w-3xl mx-auto">We acquire, improve, and recycle high‑intent web assets—and we also build and revamp client sites to generate qualified leads.</p>
                 </section>
 
                 <section className="max-w-4xl mx-auto px-4 py-12 space-y-6 text-metal-text/80">
-                    <p>
-                        Orion Ascend Media (also known as Orion Digital AI) was founded on a simple premise: most content fails not because
-                        of craft, but because of structure. Great creative without distribution strategy is wasted. Fast production without
-                        iteration loops is blind. Channels without systems plateau.
-                    </p>
-                    <p>
-                        We solve this by treating content as infrastructure. Every project connects to a larger system—messaging frameworks,
-                        testing protocols, channel operations, and feedback loops that learn and improve over time.
-                    </p>
-                    <p>
-                        Our team spans strategy, production, and growth disciplines. We've built YouTube channels from zero to top-decile,
-                        scaled podcast networks, and run performance creative engines that ship hundreds of ad variants per quarter. We bring
-                        the rigor of product thinking to the craft of storytelling.
-                    </p>
-                    <p>
-                        Whether you're launching a new channel, scaling an existing content operation, or need a full studio partner—we design
-                        systems that compound distribution, lower CAC, and lift retention.
-                    </p>
+                    <p>Ascend improves assets with fast UX, programmatic SEO, and conversion design—then monetizes or routes qualified leads to <a className="text-pulse-cyan hover:text-pulse-hover" href="https://orionintelligenceagency.com" target="_blank" rel="noreferrer">Orion Intelligence Agency</a> for AI‑bot deployments and retainers.</p>
+                    <p>When an asset matures, we recycle (hold or flip) and reinvest into the next build. For clients, we offer two tracks: revamp your current site or build a high‑value lead‑gen property from scratch.</p>
                 </section>
 
                 <section className="max-w-7xl mx-auto px-4 py-12">
@@ -49,18 +31,18 @@ export default function AboutPage() {
                         <div className="grid md:grid-cols-3 gap-6 mt-8">
                             <div className="text-center">
                                 <div className="text-gold-g1 text-4xl mb-3">✦</div>
-                                <h3 className="text-lg font-semibold text-metal-text mb-2">Systems Over Services</h3>
-                                <p className="text-sm text-metal-text/70">We build repeatable processes, not one-off deliverables.</p>
+                                <h3 className="text-lg font-semibold text-metal-text mb-2">Acquire → Improve → Recycle</h3>
+                                <p className="text-sm text-metal-text/70">Simple operating model that compounds traffic and lead flow.</p>
                             </div>
                             <div className="text-center">
                                 <div className="text-gold-g1 text-4xl mb-3">✦</div>
-                                <h3 className="text-lg font-semibold text-metal-text mb-2">Craft + Data</h3>
-                                <p className="text-sm text-metal-text/70">Cinematic quality meets rigorous performance testing.</p>
+                                <h3 className="text-lg font-semibold text-metal-text mb-2">Fast UX + SEO</h3>
+                                <p className="text-sm text-metal-text/70">Speed, Core Web Vitals, and programmatic SEO where defensible.</p>
                             </div>
                             <div className="text-center">
                                 <div className="text-gold-g1 text-4xl mb-3">✦</div>
-                                <h3 className="text-lg font-semibold text-metal-text mb-2">Long-Term Compounding</h3>
-                                <p className="text-sm text-metal-text/70">We optimize for years, not quarters. Owned media builds equity.</p>
+                                <h3 className="text-lg font-semibold text-metal-text mb-2">Conversion Design</h3>
+                                <p className="text-sm text-metal-text/70">Clear paths to contact, booking, and capture—no hype, just clarity.</p>
                             </div>
                         </div>
                     </div>

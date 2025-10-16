@@ -5,27 +5,14 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Method',
-    description: 'Our four-phase process: Discover, Script, Produce, Amplify. Measure, learn, and iterate every cycle.'
+    description: 'Acquire → Improve → Recycle. A simple operating model to compound traffic and lead flow.'
 };
 
 export default function MethodPage() {
     const steps = [
-        {
-            title: 'Discover',
-            body: 'Research audiences, map messaging, and define content strategy. We identify the insights that will drive creative decisions.'
-        },
-        {
-            title: 'Script',
-            body: 'Write outlines, scripts, and shot lists. Structure stories with clear hooks, retention beats, and calls to action.'
-        },
-        {
-            title: 'Produce',
-            body: 'Direct, shoot, and edit. Studio or on-location, we capture and finish content with cinematic craft and performance rigor.'
-        },
-        {
-            title: 'Amplify',
-            body: 'Publish, optimize, and promote across channels. Track performance, test variants, and feed learnings back into the loop.'
-        }
+        { title: 'Acquire', body: 'Curated buys + greenfield builds in verticals we know (fitness, wellness/spa, local services, e‑com sub‑niches).' },
+        { title: 'Improve', body: 'Speed + Core Web Vitals, schema, content upgrades (AI‑assisted, human‑edited), CRO, booking embeds, and the OIA bot for FAQ + capture.' },
+        { title: 'Recycle', body: 'Keep high‑RPM assets, or flip after 90–180 days when uplift and stability justify it.' }
     ];
 
     return (
@@ -33,16 +20,12 @@ export default function MethodPage() {
             <Header />
             <main className="relative z-content">
                 <section className="max-w-7xl mx-auto px-4 py-16">
-                    <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">
-                        Method
-                    </h1>
-                    <p className="mt-4 text-center text-metal-text/80 max-w-2xl mx-auto">
-                        Four phases. One continuous loop. From insight to impact, we measure and iterate.
-                    </p>
+                    <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">Method</h1>
+                    <p className="mt-4 text-center text-metal-text/80 max-w-3xl mx-auto">Acquire → Improve → Recycle. A simple operating model to compound traffic and lead flow.</p>
                 </section>
 
                 <section className="max-w-7xl mx-auto px-4 py-12">
-                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    <div className="grid gap-6 md:grid-cols-3">
                         {steps.map((step, idx) => (
                             <div key={step.title} className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6 hover:border-pulse-hover/60 transition-colors">
                                 <div className="text-gold-g1 text-sm font-semibold mb-2">Phase {idx + 1}</div>

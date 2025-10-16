@@ -8,6 +8,8 @@ export default function Footer() {
         ['Method', '/method'],
         ['Channels', '/channels'],
         ['Packages', '/packages'],
+        ['Designs', '/designs'],
+        ['Assets', '/assets'],
         ['Insights', '/insights'],
         ['About', '/about'],
         ['Contact', '/contact'],
@@ -48,7 +50,7 @@ export default function Footer() {
                     ))}
                 </nav>
             </div>
-            <div className="px-4 py-4 text-center text-xs text-metal-text/60 border-t border-royal-shade/30">© {new Date().getFullYear()} Orion Ascend Media</div>
+            <div className="px-4 py-4 text-center text-xs text-metal-text/60 border-t border-royal-shade/30">© {new Date().getFullYear()} Orion Ascend Media · <a className="text-pulse-cyan hover:text-pulse-hover" href="https://orionintelligenceagency.com" target="_blank" rel="noreferrer">OIA</a> · <a className="text-pulse-cyan hover:text-pulse-hover" href="https://orionapexcapital.com" target="_blank" rel="noreferrer">Apex</a></div>
         </footer>
     );
 }
