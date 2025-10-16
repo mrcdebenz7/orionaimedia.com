@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Terms of Service',
-    description: 'Terms and conditions for using Orion Ascend Media services.'
+    description: 'Terms and conditions for using orionaimedia.com by Orion Digital AI Assets.'
 };
 
 export default function TermsPage() {
@@ -16,7 +16,7 @@ export default function TermsPage() {
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] mb-8">
                         Terms of Service
                     </h1>
-                    <div className="space-y-6 text-metal-text/80">
+                    <div className="space-y-8 text-metal-text/80">
                         <p className="text-sm text-metal-text/60">Last updated: October 15, 2025</p>
 
                         <section>
@@ -30,7 +30,7 @@ export default function TermsPage() {
                         <section>
                             <h2 className="text-xl text-gold-g1 font-semibold mb-3">Services</h2>
                             <p>
-                                Orion Ascend Media provides content strategy, production, post-production, and distribution services.
+                                Orion Ascend Media provides website builds, revamps, lead‑gen microsites, SEO, CRO + bot integration, and related services.
                                 Specific deliverables and timelines are defined in individual Statements of Work (SOWs).
                             </p>
                         </section>
@@ -72,9 +72,9 @@ export default function TermsPage() {
                         </section>
 
                         <section>
-                            <h2 className="text-xl text-gold-g1 font-semibold mb-3">Governing Law</h2>
+                            <h2 className="text-xl text-gold-g1 font-semibold mb-3">Governing law & venue</h2>
                             <p>
-                                These terms are governed by the laws of [Your State/Country]. Disputes will be resolved in [Your Jurisdiction].
+                                These Terms are governed by Ohio law; exclusive venue in courts located in Cuyahoga County, Ohio. Non‑waivable consumer/privacy rights under applicable law still apply.
                             </p>
                         </section>
 
