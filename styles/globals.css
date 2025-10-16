@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: dark;
+}
+
+html,
+body {
+    @apply bg-graphite-900 text-metal-text antialiased;
+}
+
+.body-bg {
+    @apply bg-starfield;
+    background-color: #0E141B;
+    background-blend-mode: screen;
+}
+
+.gold-emboss {
+    @apply text-gold-gradient drop-shadow-gold;
+    text-shadow: 0 1px 0 rgba(255, 241, 194, 0.6), 0 2px 6px rgba(179, 132, 42, 0.35);
+}
+
+.wave-layer {
+    @apply bg-wave animate-wave-scroll;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wave-layer {
+        animation: none;
+    }
+}
+
+.rounded-panel {
+    @apply rounded-[16px];
+}
+
+.rounded-button {
+    @apply rounded-[12px];
+}

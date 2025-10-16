@@ -1,0 +1,77 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF1C2;stop-opacity:1" />
+      <stop offset="45%" style="stop-color:#E6C56E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B3842A;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="blueGlobe" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#183B73;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0E2F63;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Transparent background - no fill -->
+  
+  <!-- Outer ring (thicker) -->
+  <circle cx="64" cy="64" r="58" stroke="url(#goldGradient)" stroke-width="6" fill="none" opacity="0.95"/>
+  
+  <!-- Inner ring -->
+  <circle cx="64" cy="64" r="52" stroke="url(#goldGradient)" stroke-width="2.5" fill="none" opacity="0.75"/>
+  
+  <!-- Top star cluster -->
+  <g transform="translate(64, 12)">
+    <!-- Center large star -->
+    <path d="M 0 -6 L 1.8 -1.5 L 6.5 -1 L 3 2 L 4 6.5 L 0 4 L -4 6.5 L -3 2 L -6.5 -1 L -1.8 -1.5 Z" 
+          fill="url(#goldGradient)" opacity="0.95"/>
+    <!-- Small stars flanking -->
+    <path d="M -10 2 L -9.2 3.8 L -7.5 4 L -8.5 5 L -8 6.5 L -10 5.5 L -12 6.5 L -11.5 5 L -12.5 4 L -10.8 3.8 Z" 
+          fill="url(#goldGradient)" opacity="0.8"/>
+    <path d="M 10 2 L 10.8 3.8 L 12.5 4 L 11.5 5 L 12 6.5 L 10 5.5 L 8 6.5 L 8.5 5 L 7.5 4 L 9.2 3.8 Z" 
+          fill="url(#goldGradient)" opacity="0.8"/>
+    <!-- Tiny accent stars -->
+    <circle cx="-14" cy="0" r="1.2" fill="url(#goldGradient)" opacity="0.7"/>
+    <circle cx="14" cy="0" r="1.2" fill="url(#goldGradient)" opacity="0.7"/>
+  </g>
+  
+  <!-- Bottom star cluster -->
+  <g transform="translate(64, 116)">
+    <!-- Center large star -->
+    <path d="M 0 6 L 1.8 1.5 L 6.5 1 L 3 -2 L 4 -6.5 L 0 -4 L -4 -6.5 L -3 -2 L -6.5 1 L -1.8 1.5 Z" 
+          fill="url(#goldGradient)" opacity="0.95"/>
+    <!-- Small stars flanking -->
+    <path d="M -10 -2 L -9.2 -3.8 L -7.5 -4 L -8.5 -5 L -8 -6.5 L -10 -5.5 L -12 -6.5 L -11.5 -5 L -12.5 -4 L -10.8 -3.8 Z" 
+          fill="url(#goldGradient)" opacity="0.8"/>
+    <path d="M 10 -2 L 10.8 -3.8 L 12.5 -4 L 11.5 -5 L 12 -6.5 L 10 -5.5 L 8 -6.5 L 8.5 -5 L 7.5 -4 L 9.2 -3.8 Z" 
+          fill="url(#goldGradient)" opacity="0.8"/>
+    <!-- Tiny accent stars -->
+    <circle cx="-14" cy="0" r="1.2" fill="url(#goldGradient)" opacity="0.7"/>
+    <circle cx="14" cy="0" r="1.2" fill="url(#goldGradient)" opacity="0.7"/>
+  </g>
+  
+  <!-- Globe outer ring -->
+  <circle cx="64" cy="64" r="32" stroke="url(#goldGradient)" stroke-width="2" fill="none" opacity="0.8"/>
+  
+  <!-- Globe fill -->
+  <circle cx="64" cy="64" r="30" fill="url(#blueGlobe)"/>
+  
+  <!-- Latitude/longitude grid lines -->
+  <ellipse cx="64" cy="64" rx="30" ry="15" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.45"/>
+  <ellipse cx="64" cy="64" rx="30" ry="8" stroke="url(#goldGradient)" stroke-width="0.8" fill="none" opacity="0.35"/>
+  <ellipse cx="64" cy="64" rx="15" ry="30" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.45"/>
+  <ellipse cx="64" cy="64" rx="8" ry="30" stroke="url(#goldGradient)" stroke-width="0.8" fill="none" opacity="0.35"/>
+  <line x1="34" y1="64" x2="94" y2="64" stroke="url(#goldGradient)" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Yin-yang symbol -->
+  <g opacity="0.9">
+    <!-- Upper half (gold) -->
+    <path d="M 64 49 A 15 15 0 0 1 64 79 A 7.5 7.5 0 0 0 64 64 A 7.5 7.5 0 0 1 64 49 Z" 
+          fill="url(#goldGradient)"/>
+    <!-- Lower half (dark blue) -->
+    <path d="M 64 49 A 15 15 0 0 0 64 79 A 7.5 7.5 0 0 1 64 64 A 7.5 7.5 0 0 0 64 49 Z" 
+          fill="#0E2F63"/>
+    <!-- Small circles -->
+    <circle cx="64" cy="56.5" r="2.8" fill="#0E2F63"/>
+    <circle cx="64" cy="71.5" r="2.8" fill="url(#goldGradient)"/>
+  </g>
+</svg>

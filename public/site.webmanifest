@@ -1,0 +1,21 @@
+{
+    "name": "Orion Ascend Media",
+    "short_name": "Orion Ascend",
+    "description": "Content systems that compound distribution and growth",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#0E141B",
+    "background_color": "#0E141B",
+    "icons": [
+        {
+            "src": "/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}
