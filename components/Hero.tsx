@@ -6,7 +6,7 @@ export default function Hero() {
             <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
                 <div className="relative flex flex-col items-center text-center">
                     <div className="relative mb-6">
-                        <div className="absolute -inset-8 rounded-full ring-gold blur-sm" aria-hidden />
+                        <div className="absolute -inset-8 rounded-full ring-gold blur-sm opacity-70" aria-hidden />
                         <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-8" aria-hidden>
                             <span className="h-1.5 w-1.5 rounded-full bg-gold-g0 animate-sparkle" />
                             <span className="h-1.5 w-1.5 rounded-full bg-gold-g1 animate-sparkle [animation-delay:.4s]" />
@@ -19,9 +19,10 @@ export default function Hero() {
                             MEDIA
                         </div>
                     </div>
-                    <p className="mt-4 max-w-2xl text-base text-metal-text/80">
-                        High‑intent landing experiences, programmatic SEO, and conversion design to compound traffic and turn demand into leads for OIA.
+                    <p className="mt-4 max-w-3xl text-base md:text-lg text-metal-text/90">
+                        We acquire, improve, and recycle high‑intent web assets—then turn them into monetization and lead‑gen engines for our sister company OIA. We also build high‑value sites from scratch and revamp existing ones.
                     </p>
+                    <p className="mt-2 max-w-3xl small-caps text-metal-text/80">Human intuition + algorithmic precision for compounding growth.</p>
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                         <Link
                             href="/contact?intent=revamp"
