@@ -96,3 +96,4 @@ All content is in `app/[page]/page.tsx` files — just edit the JSX
 
 **Built with Next.js 14 + Tailwind CSS + TypeScript**
 
+

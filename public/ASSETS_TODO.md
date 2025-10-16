@@ -34,3 +34,4 @@ Replace these placeholder files with final branded assets:
 - OG image templates: Figma, Canva, or Photoshop
 - SVG optimization: https://jakearchibald.github.io/svgomg/
 
+

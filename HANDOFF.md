@@ -234,3 +234,4 @@ This site is production-ready except for asset replacements and integration conf
 **Built with Next.js 14, Tailwind CSS, and TypeScript.**  
 **Imagine. Create. Transcend.**
 
+

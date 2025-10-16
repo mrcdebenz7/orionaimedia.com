@@ -151,3 +151,4 @@ The crest is animation-ready. Add sparkle effect:
 **Format**: SVG (scalable, web-optimized)  
 **Integrated**: Header + Footer components
 
+
