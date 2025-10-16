@@ -16,28 +16,12 @@ type DesignItem = {
 };
 
 const designs: DesignItem[] = [
-    {
-        title: 'Orion Crest & Wordmark',
-        description: 'Gold ring, stars, and yin‑yang globe rendered with embossed details.',
-        imageSrc: '/crest.svg',
-        href: '/'
-    },
-    {
-        title: 'Homepage Hero',
-        description: 'Gold embossed headline, sparkle stars, and pulse wave background.',
-        imageSrc: '/og.png',
-        href: '/'
-    },
-    {
-        title: 'Packages Comparison',
-        description: 'Tiered pricing cards with tokens and metallic accents.',
-        imageSrc: '/og.png'
-    },
-    {
-        title: 'Case Study Card',
-        description: 'Outcome‑focused tiles with metrics for reach, CAC, and retention.',
-        imageSrc: '/og.png'
-    }
+    { title: 'Crest (SVG)', description: 'Imperial gold ring + stars; royal blue globe.', imageSrc: '/crest.svg', href: '/' },
+    { title: 'Crest Transparent (PNG)', description: 'Transparent PNG for decks and thumbnails.', imageSrc: '/crest-transparent.png' },
+    { title: 'Crest Transparent 1024', description: 'High‑res crest export for large comps.', imageSrc: '/crest-transparent-1024.png' },
+    { title: 'Crest with Background', description: 'Brand background with waveform texture.', imageSrc: '/crest-with-bg.png' },
+    { title: 'Orion Ascend Main', description: 'Full lockup from uploads.', imageSrc: '/OrionAscendMain.png' },
+    { title: 'OIM Crest Lockup', description: 'Alternate crest lockup provided.', imageSrc: '/OIMcrestlogo.png' }
 ];
 
 export default function DesignsPage() {

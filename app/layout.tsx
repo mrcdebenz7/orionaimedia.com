@@ -25,14 +25,14 @@ export const metadata: Metadata = {
         description:
             'Content systems that compound distribution and growth.',
         url: 'https://orionaimedia.com',
-        images: ['/og.png']
+        images: ['/OrionAscendMain.png']
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Orion Ascend Media',
         description:
             'Content systems that compound distribution and growth.',
-        images: ['/og.png']
+        images: ['/OrionAscendMain.png']
     },
     icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' }
 };

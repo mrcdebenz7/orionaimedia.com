@@ -19,24 +19,21 @@ export default function Hero() {
                             MEDIA
                         </div>
                     </div>
-                    <p className="small-caps text-sm text-metal-text/90">
-                        IMAGINE. CREATE. TRANSCEND.
-                    </p>
                     <p className="mt-4 max-w-2xl text-base text-metal-text/80">
-                        We build content systems that compound distribution, lower CAC, and lift retention.
+                        High‑intent landing experiences, programmatic SEO, and conversion design to compound traffic and turn demand into leads for OIA.
                     </p>
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                         <Link
-                            href="/contact"
+                            href="/contact?intent=revamp"
                             className="rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-5 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800 transition-colors"
                         >
-                            Start a Project
+                            Start a revamp
                         </Link>
                         <Link
-                            href="/work"
+                            href="/contact?intent=microsite"
                             className="rounded-button border border-royal-shade/50 px-5 py-3 text-sm font-semibold text-pulse-cyan hover:text-pulse-hover"
                         >
-                            View Work
+                            Build a lead-gen microsite
                         </Link>
                     </div>
                 </div>
