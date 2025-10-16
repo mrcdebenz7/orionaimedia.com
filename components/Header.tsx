@@ -69,6 +69,15 @@ export default function Header() {
                     Menu
                 </button>
             </div>
+            {/* Sticky promo bar */}
+            <div className="hidden md:block border-t border-royal-shade/30 bg-graphite-900/60">
+                <div className="mx-auto max-w-7xl px-4 py-2 text-center text-xs text-metal-text/70">
+                    Looking to upgrade performance and conversions?
+                    <a href="/contact?intent=revamp" className="ml-2 inline-block rounded-button border border-gold-g1/40 px-3 py-1 text-[11px] font-semibold text-gold-g0 hover:bg-graphite-800">
+                        Start a revamp
+                    </a>
+                </div>
+            </div>
             {open && (
                 <div id="mobile-nav" className="md:hidden px-4 pb-4 grid gap-2">
                     {nav.map(([label, href]) => (

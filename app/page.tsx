@@ -88,6 +88,24 @@ export default function HomePage() {
                     </div>
                 </section>
 
+                {/* Industries band for lead-gen */}
+                <section className="max-w-7xl mx-auto px-4 py-12">
+                    <div className="small-caps text-gold-g1/80">Who we serve</div>
+                    <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                        {[
+                            'Gyms & Fitness',
+                            'Med‑spa / Wellness',
+                            'Local Services',
+                            'Niche e‑commerce & Newsletters'
+                        ].map((label) => (
+                            <a key={label} href="/contact?intent=revamp" className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-5 hover:border-pulse-hover/60 transition-colors text-center">
+                                <div className="text-metal-text/90 font-semibold">{label}</div>
+                                <div className="mt-2 text-pulse-cyan text-sm">Start a revamp →</div>
+                            </a>
+                        ))}
+                    </div>
+                </section>
+
 
                 <section className="relative my-16">
                     <div className="max-w-7xl mx-auto px-4 py-10 rounded-panel border border-royal-shade/40 bg-graphite-800/70 text-center">
