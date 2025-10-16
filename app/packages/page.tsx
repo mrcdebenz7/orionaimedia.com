@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Packages',
-    description: 'Transparent website build packages: Starter (Launch Site), Growth (Site Plus), and Enterprise (Custom Build).'
+    description: 'Launch Pack, Revamp Sprint, and Lead‑Gen Microsite packages with Request Proposal CTAs.'
 };
 
 export default function PackagesPage() {

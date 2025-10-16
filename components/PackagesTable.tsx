@@ -1,38 +1,33 @@
 const plans = [
     {
-        name: 'Starter — Launch Site',
-        price: '$2,500 one-time',
+        name: 'Launch Pack (Custom Build)',
+        price: 'From $2,500',
         features: [
-            '1–5 pages (Home, About, Services, Contact)',
-            'Custom responsive UI (Next.js + Tailwind)',
-            'Baseline SEO (titles, meta, OG) + sitemap/robots',
-            'Contact form (Formspree) + analytics tag',
-            'Performance target: Lighthouse ≥90',
-            '2 rounds of revisions + Vercel deploy'
+            'Design system + CMS setup (Next.js + Tailwind)',
+            '5–12 core pages with baseline SEO + sitemap/robots',
+            'Forms/booking embed + analytics + event mapping',
+            'Performance target: Lighthouse ≥90; a11y pass',
+            'Outcome: launch‑ready lead funnel with tracking'
         ]
     },
     {
-        name: 'Growth — Site Plus',
-        price: '$6,500 one-time',
+        name: 'Revamp Sprint',
+        price: 'From $4,500',
         features: [
-            '6–12 pages + blog (MDX) and reusable components',
-            'Design system tokens + advanced navigation',
-            'Schema (Organization, Breadcrumb) + OG images',
-            'A11y: WCAG AA pass + reduced-motion support',
-            'Content authoring docs + handoff',
-            '3 rounds of revisions + staging preview'
+            'Speed + Core Web Vitals improvements',
+            'IA cleanup, schema, copy tuning, CRO paths',
+            'Analytics QA + error cleanup; optional OIA bot',
+            'Outcome: faster UX, clearer messaging, higher capture rate'
         ]
     },
     {
-        name: 'Enterprise — Custom Build',
-        price: 'Custom (from $12,000)',
+        name: 'Lead‑Gen Microsite (7‑Day)',
+        price: 'From $1,800',
         features: [
-            'Headless CMS (Sanity/Contentful) + content modeling',
-            'Complex IA (12–25+ pages), search, filters, i18n',
-            'Integrations (Auth, CRM, analytics pipeline)',
-            'Advanced animations and interactions',
-            'SEO program (schema, redirects, migration)',
-            'Launch + 30 days of post‑launch support'
+            'Single‑purpose landing + thank‑you page',
+            'Offer copy + form to OIA CRM or booking embed',
+            'Tracking + event mapping; fast, lightweight build',
+            'Outcome: quick launch to capture and route demand'
         ]
     }
 ];
