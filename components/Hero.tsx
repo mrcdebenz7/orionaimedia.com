@@ -5,6 +5,18 @@ export default function Hero() {
         <section className="relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 py-16 md:py-24">
                 <div className="relative flex flex-col items-center text-center">
+                    {/* Subtle crest + waveform overlays */}
+                    <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-0 -z-wave opacity-15"
+                        style={{
+                            backgroundImage: "url('/crest-with-bg.png')",
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center 10%',
+                            backgroundSize: 'min(900px, 80vw)'
+                        }}
+                    />
+                    <div aria-hidden className="pointer-events-none absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[120px] bg-wave opacity-30" />
                     <div className="relative mb-6">
                         <div className="absolute -inset-8 rounded-full ring-gold blur-sm opacity-70" aria-hidden />
                         <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-8" aria-hidden>
