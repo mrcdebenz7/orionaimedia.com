@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Orion Ascend Media — Content systems that compound',
     description: 'We build and revamp content systems that compound distribution, lower CAC, and lift retention.',
+    alternates: { canonical: 'https://www.orionaimedia.com/' },
     openGraph: {
         title: 'Orion Ascend Media',
         description: 'Content systems that compound distribution and growth.',

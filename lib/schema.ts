@@ -6,8 +6,8 @@ export function organizationSchema() {
         '@type': 'Organization',
         name: 'Orion Ascend Media',
         alternateName: 'Orion Digital AI',
-        url: 'https://orionaimedia.com',
-        logo: 'https://orionaimedia.com/crest.svg',
+        url: 'https://www.orionaimedia.com',
+        logo: 'https://www.orionaimedia.com/crest.svg',
         description: 'Content systems that compound distribution, lower CAC, and lift retention.',
         sameAs: [
             // Add social media URLs when available
@@ -52,7 +52,7 @@ export function articleSchema(article: {
         url: article.url,
         datePublished: article.datePublished,
         dateModified: article.dateModified || article.datePublished,
-        image: article.image || 'https://orionaimedia.com/og.png',
+        image: article.image || 'https://www.orionaimedia.com/og.png',
         author: {
             '@type': 'Organization',
             name: article.author || 'Orion Ascend Media'
@@ -62,9 +62,29 @@ export function articleSchema(article: {
             name: 'Orion Ascend Media',
             logo: {
                 '@type': 'ImageObject',
-                url: 'https://orionaimedia.com/crest.svg'
+                url: 'https://www.orionaimedia.com/crest.svg'
             }
         }
+    };
+}
+
+export function webPageSchema(page: { name: string; url: string; description?: string }) {
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: page.name,
+        url: page.url,
+        description: page.description || ''
+    };
+}
+
+export function caseStudySchema(item: { name: string; description: string; url: string }) {
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: item.name,
+        url: item.url,
+        description: item.description
     };
 }
 

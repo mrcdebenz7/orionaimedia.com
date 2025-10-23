@@ -2,10 +2,12 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import type { Metadata } from 'next';
+import { caseStudySchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
     title: 'Work',
-    description: 'Case studies and outcomes: reach, ROAS, CAC reduction, and retention lift.'
+    description: 'Case studies and outcomes: reach, ROAS, CAC reduction, and retention lift.',
+    alternates: { canonical: 'https://www.orionaimedia.com/work' }
 };
 
 export default function WorkPage() {
@@ -78,6 +80,10 @@ export default function WorkPage() {
                                 <ul className="space-y-1 text-xs text-metal-text/60">
                                     {c.metrics.map(m => <li key={m}>• {m}</li>)}
                                 </ul>
+                                <script
+                                    type="application/ld+json"
+                                    dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema({ name: c.title, description: c.description, url: `https://www.orionaimedia.com/work` })) }}
+                                />
                             </div>
                         ))}
                     </div>

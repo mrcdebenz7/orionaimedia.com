@@ -7,7 +7,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Contact',
-    description: 'Start a revamp, launch a microsite, or request a proposal. Real responses, no spam.'
+    description: 'Start a revamp, launch a microsite, or request a proposal. Real responses, no spam.',
+    alternates: { canonical: 'https://www.orionaimedia.com/contact' }
 };
 
 export default function ContactPage() {
@@ -26,6 +27,9 @@ export default function ContactPage() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (typeof window !== 'undefined' && (window as any).oamTrack) {
+            (window as any).oamTrack('form_start', { form: 'contact', intent });
+        }
         setStatus('sending');
         setError(null);
         setRefId(null);
@@ -173,6 +177,7 @@ export default function ContactPage() {
                                     src={process.env.NEXT_PUBLIC_CAL_URL}
                                     className="w-full h-[760px] rounded-md border border-royal-shade/30"
                                     loading="lazy"
+                                    onLoad={() => (window as any)?.oamTrack?.('calendar_view', { source: 'contact_page' })}
                                 />
                             </div>
                         ) : (

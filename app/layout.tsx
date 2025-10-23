@@ -44,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" className="dark">
             <head>
+                <a href="#content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[10000] bg-graphite-800 text-metal-text border border-royal-shade/40 rounded px-3 py-2">Skip to content</a>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
@@ -94,7 +95,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </head>
             <body className={`body-bg ${cinzel.className} ${inter.className}`}>
                 <div className="fixed inset-0 -z-wave wave-layer opacity-50" />
-                <div className="relative min-h-screen">{children}</div>
+                <div className="relative min-h-screen" id="content">{children}</div>
+                <div className="md:hidden fixed bottom-3 left-0 right-0 z-[60] flex justify-center pointer-events-none">
+                    <a
+                        href="/contact#book"
+                        className="pointer-events-auto rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-5 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800"
+                        onClick={() => (window as any)?.oamTrack?.('cta_click', { cta: 'mobile_sticky_book' })}
+                    >
+                        Book a call
+                    </a>
+                </div>
             </body>
         </html>
     );
