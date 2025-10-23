@@ -10,7 +10,7 @@ const MAX_HITS = 5; // 5 submissions per window per IP
 function getClientIp(req: NextRequest): string {
   const xff = req.headers.get('x-forwarded-for');
   if (xff) return xff.split(',')[0].trim();
-  // @ts-ignore - ip may be available on some platforms
+  // @ts-expect-error - ip may be available on some platforms
   return (req as any).ip || 'unknown';
 }
 
