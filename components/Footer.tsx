@@ -6,7 +6,6 @@ export default function Footer() {
         ['Work', '/work'],
         ['Services', '/services'],
         ['Method', '/method'],
-        ['Channels', '/channels'],
         ['Packages', '/packages'],
         ['Designs', '/designs'],
         ['Assets', '/assets'],

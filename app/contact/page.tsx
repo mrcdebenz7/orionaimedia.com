@@ -1,32 +1,57 @@
 'use client';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Contact',
+    description: 'Start a revamp, launch a microsite, or request a proposal. Real responses, no spam.'
+};
 
 export default function ContactPage() {
+    const searchParams = useSearchParams();
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+    const [error, setError] = useState<string | null>(null);
+    const [refId, setRefId] = useState<string | null>(null);
+
+    const intent = useMemo(() => searchParams.get('intent') || '', [searchParams]);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && (window as any).oamTrack) {
+            (window as any).oamTrack('contact_view', { intent: intent || undefined });
+        }
+    }, [intent]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus('sending');
+        setError(null);
+        setRefId(null);
         const form = e.currentTarget;
         const data = new FormData(form);
 
         try {
-            // Replace with your Formspree endpoint
-            const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+            const response = await fetch('/api/contact', {
                 method: 'POST',
-                body: data,
-                headers: { Accept: 'application/json' }
+                body: data
             });
-            if (response.ok) {
+            const json = await response.json().catch(() => ({}));
+            if (response.ok && json?.ok) {
                 setStatus('success');
+                setRefId(json.ref || null);
                 form.reset();
+                if (typeof window !== 'undefined' && (window as any).oamTrack) {
+                    (window as any).oamTrack('form_submit', { form: 'contact', intent: data.get('intent') || undefined });
+                }
             } else {
                 setStatus('error');
+                setError(json?.error || 'Unable to send message.');
             }
-        } catch {
+        } catch (err) {
             setStatus('error');
+            setError('Network error. Please try again or use the fallback.');
         }
     };
 
@@ -45,6 +70,8 @@ export default function ContactPage() {
 
                 <section className="max-w-2xl mx-auto px-4 py-12">
                     <form onSubmit={handleSubmit} className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-8 space-y-6">
+                        <input type="text" name="__hp" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden />
+                        <input type="hidden" name="intent" value={intent} />
                         <div>
                             <label htmlFor="name" className="block text-sm font-semibold text-metal-text mb-2">
                                 Name
@@ -69,16 +96,42 @@ export default function ContactPage() {
                                 className="w-full rounded-button bg-graphite-900 border border-royal-shade/50 px-4 py-2 text-metal-text focus:border-pulse-cyan focus:outline-none"
                             />
                         </div>
+                        <div className="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label htmlFor="company" className="block text-sm font-semibold text-metal-text mb-2">
+                                    Company (optional)
+                                </label>
+                                <input
+                                    type="text"
+                                    id="company"
+                                    name="company"
+                                    className="w-full rounded-button bg-graphite-900 border border-royal-shade/50 px-4 py-2 text-metal-text focus:border-pulse-cyan focus:outline-none"
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="website" className="block text-sm font-semibold text-metal-text mb-2">
+                                    Website (optional)
+                                </label>
+                                <input
+                                    type="url"
+                                    id="website"
+                                    name="website"
+                                    placeholder="https://"
+                                    className="w-full rounded-button bg-graphite-900 border border-royal-shade/50 px-4 py-2 text-metal-text focus:border-pulse-cyan focus:outline-none"
+                                />
+                            </div>
+                        </div>
                         <div>
-                            <label htmlFor="company" className="block text-sm font-semibold text-metal-text mb-2">
-                                Company
+                            <label htmlFor="budget" className="block text-sm font-semibold text-metal-text mb-2">
+                                Budget
                             </label>
-                            <input
-                                type="text"
-                                id="company"
-                                name="company"
-                                className="w-full rounded-button bg-graphite-900 border border-royal-shade/50 px-4 py-2 text-metal-text focus:border-pulse-cyan focus:outline-none"
-                            />
+                            <select id="budget" name="budget" className="w-full rounded-button bg-graphite-900 border border-royal-shade/50 px-4 py-2 text-metal-text focus:border-pulse-cyan focus:outline-none">
+                                <option value="">Select</option>
+                                <option value="<5k">Under $5k</option>
+                                <option value="5-10k">$5k–$10k</option>
+                                <option value="10-25k">$10k–$25k</option>
+                                <option value=">25k">$25k+</option>
+                            </select>
                         </div>
                         <div>
                             <label htmlFor="message" className="block text-sm font-semibold text-metal-text mb-2">
@@ -100,23 +153,39 @@ export default function ContactPage() {
                             {status === 'sending' ? 'Sending...' : 'Send Message'}
                         </button>
                         {status === 'success' && (
-                            <p className="text-pulse-cyan text-sm text-center">Thanks! We'll be in touch soon.</p>
+                            <p className="text-pulse-cyan text-sm text-center">Thanks! Your message was sent. {refId ? `Ref: ${refId}` : ''}</p>
                         )}
                         {status === 'error' && (
-                            <p className="text-red-400 text-sm text-center">Something went wrong. Please try again.</p>
+                            <div className="text-center text-sm">
+                                <p className="text-red-400">{error || 'Unable to send message.'}</p>
+                                <p className="text-metal-text/70 mt-2">
+                                    Fallback: <a className="text-pulse-cyan hover:text-pulse-hover" href={`mailto:hello@orionaimedia.com?subject=Project inquiry`}>email hello@orionaimedia.com</a>
+                                </p>
+                            </div>
                         )}
                     </form>
 
                     <div className="mt-12 text-center">
                         <p className="text-sm text-metal-text/70 mb-4">Or schedule a discovery call:</p>
-                        <a
-                            href="https://calendly.com/your-link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block rounded-button border border-pulse-cyan/50 px-5 py-3 text-sm font-semibold text-pulse-cyan hover:text-pulse-hover"
-                        >
-                            Book a Call
-                        </a>
+                        {process.env.NEXT_PUBLIC_CAL_URL ? (
+                            <div className="rounded-panel border border-royal-shade/40 bg-graphite-800/50 p-4">
+                                <iframe
+                                    src={process.env.NEXT_PUBLIC_CAL_URL}
+                                    className="w-full h-[760px] rounded-md border border-royal-shade/30"
+                                    loading="lazy"
+                                />
+                            </div>
+                        ) : (
+                            <a
+                                href="https://calendly.com/dan-mercede-orionintelligenceagency/30min"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block rounded-button border border-pulse-cyan/50 px-5 py-3 text-sm font-semibold text-pulse-cyan hover:text-pulse-hover"
+                                onClick={() => (window as any)?.oamTrack?.('cta_click', { cta: 'book_call' })}
+                            >
+                                Book a Call
+                            </a>
+                        )}
                     </div>
                 </section>
             </main>

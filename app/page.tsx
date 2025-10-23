@@ -1,6 +1,23 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Orion Ascend Media — Content systems that compound',
+    description: 'We build and revamp content systems that compound distribution, lower CAC, and lift retention.',
+    openGraph: {
+        title: 'Orion Ascend Media',
+        description: 'Content systems that compound distribution and growth.',
+        images: ['/og.png']
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Orion Ascend Media',
+        description: 'Content systems that compound distribution and growth.',
+        images: ['/og.png']
+    }
+};
 
 export default function HomePage() {
     return (
@@ -27,8 +44,8 @@ export default function HomePage() {
                             Human intuition + algorithmic precision for compounding growth.
                         </p>
                         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                            <Link href="/contact?intent=revamp" className="rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-5 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800 transition-colors">Start a revamp</Link>
-                            <Link href="/contact?intent=microsite" className="rounded-button border border-royal-shade/50 px-5 py-3 text-sm font-semibold text-pulse-cyan hover:text-pulse-hover">Build a lead-gen microsite</Link>
+                            <Link href="/contact?intent=revamp" className="rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-5 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800 transition-colors" onClick={() => (window as any)?.oamTrack?.('cta_click', { cta: 'start_revamp_home' })}>Start a revamp</Link>
+                            <Link href="/contact?intent=microsite" className="rounded-button border border-royal-shade/50 px-5 py-3 text-sm font-semibold text-pulse-cyan hover:text-pulse-hover" onClick={() => (window as any)?.oamTrack?.('cta_click', { cta: 'microsite_home' })}>Build a lead-gen microsite</Link>
                         </div>
                     </div>
                 </section>
