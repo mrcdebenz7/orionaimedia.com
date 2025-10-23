@@ -83,14 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         defer
                     />
                 ) : null}
-                <Script id="oam-track" strategy="afterInteractive">{`
-                    window.oamTrack = function(name, props){
-                        try {
-                            if (typeof window.gtag === 'function') { window.gtag('event', name, props || {}); }
-                            if (typeof window.plausible === 'function') { window.plausible(name, { props: props || {} }); }
-                        } catch (e) { /* no-op */ }
-                    };
-                `}</Script>
+                {/* client tracking utility is in lib/track.ts */}
             </head>
             <body className={`body-bg ${cinzel.className} ${inter.className}`}>
                 <a href="#content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[10000] bg-graphite-800 text-metal-text border border-royal-shade/40 rounded px-3 py-2">Skip to content</a>

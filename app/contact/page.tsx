@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { Metadata } from 'next';
+import { track } from '@/lib/track';
 
 export const metadata: Metadata = {
     title: 'Contact',
@@ -22,16 +23,12 @@ export default function ContactPage() {
     const intent = useMemo(() => searchParams.get('intent') || '', [searchParams]);
 
     useEffect(() => {
-        if (typeof window !== 'undefined' && (window as any).oamTrack) {
-            (window as any).oamTrack('contact_view', { intent: intent || undefined });
-        }
+        track('contact_view', { intent: intent || undefined });
     }, [intent]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (typeof window !== 'undefined' && (window as any).oamTrack) {
-            (window as any).oamTrack('form_start', { form: 'contact', intent });
-        }
+        track('form_start', { form: 'contact', intent });
         setStatus('sending');
         setError(null);
         setRefId(null);
@@ -48,9 +45,7 @@ export default function ContactPage() {
                 setStatus('success');
                 setRefId(json.ref || null);
                 form.reset();
-                if (typeof window !== 'undefined' && (window as any).oamTrack) {
-                    (window as any).oamTrack('form_submit', { form: 'contact', intent: data.get('intent') || undefined });
-                }
+                track('form_submit', { form: 'contact', intent: data.get('intent') || undefined });
             } else {
                 setStatus('error');
                 setError(json?.error || 'Unable to send message.');
@@ -188,7 +183,7 @@ export default function ContactPage() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-block rounded-button border border-pulse-cyan/50 px-5 py-3 text-sm font-semibold text-pulse-cyan hover:text-pulse-hover"
-                                onClick={() => (window as any)?.oamTrack?.('cta_click', { cta: 'book_call' })}
+                                onClick={() => track('cta_click', { cta: 'book_call' })}
                             >
                                 Book a Call
                             </a>

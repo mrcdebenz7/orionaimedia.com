@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import sanitizeHtml from 'sanitize-html';
 
 // Naive in-memory rate limiter (per runtime instance)
 const ipHits: Map<string, { count: number; resetAt: number }> = new Map();
@@ -26,7 +27,8 @@ function rateLimit(ip: string): boolean {
 }
 
 function sanitize(input: unknown): string {
-  return String(input || '').toString().slice(0, 10000).trim();
+  const str = String(input || '').slice(0, 10000).trim();
+  return sanitizeHtml(str, { allowedTags: [], allowedAttributes: {} });
 }
 
 export async function POST(req: NextRequest) {
@@ -61,15 +63,14 @@ export async function POST(req: NextRequest) {
     const message = sanitize(data.get('message'));
     const intent = sanitize(data.get('intent'));
 
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !name.trim() || !email.trim() || !message.trim()) {
       return NextResponse.json({ ok: false, error: 'Missing required fields.' }, { status: 400 });
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ ok: false, error: 'Invalid email address.' }, { status: 400 });
     }
 
-    const RESEND_API_KEY = process.env.RESEND_API_KEY;
-    const CONTACT_TO = process.env.CONTACT_TO;
+    const { RESEND_API_KEY, CONTACT_TO } = process.env as Record<string, string | undefined>;
     if (!RESEND_API_KEY || !CONTACT_TO) {
       return NextResponse.json(
         { ok: false, error: 'Email service not configured. Please use the mailto fallback.' },
