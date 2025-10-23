@@ -9,7 +9,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: 'Services',
     description: 'Custom builds, revamps, lead-gen microsites, programmatic SEO, CRO + bot integration, and operate-or-flip.',
-    alternates: { canonical: 'https://www.orionaimedia.com/services' }
+    alternates: { canonical: 'https://www.orionaimedia.com/services' },
+    openGraph: { images: ['/og/services.png'] },
+    twitter: { images: ['/og/services.png'], card: 'summary_large_image' }
 };
 
 const services = [

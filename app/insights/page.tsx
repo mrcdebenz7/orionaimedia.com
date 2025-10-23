@@ -5,7 +5,9 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Insights',
-    description: 'Essays and breakdowns on content systems, creative testing, and channel growth.'
+    description: 'Essays and breakdowns on content systems, creative testing, and channel growth.',
+    openGraph: { images: ['/og/insights.png'] },
+    twitter: { images: ['/og/insights.png'], card: 'summary_large_image' }
 };
 
 const posts = [

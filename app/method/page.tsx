@@ -8,7 +8,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Method',
     description: 'Acquire → Improve → Recycle. A simple operating model to compound traffic and lead flow.',
-    alternates: { canonical: 'https://www.orionaimedia.com/method' }
+    alternates: { canonical: 'https://www.orionaimedia.com/method' },
+    openGraph: { images: ['/og/method.png'] },
+    twitter: { images: ['/og/method.png'], card: 'summary_large_image' }
 };
 
 export default function MethodPage() {
