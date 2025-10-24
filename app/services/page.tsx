@@ -4,7 +4,6 @@ import CTA from '@/components/CTA';
 import Link from 'next/link';
 import { webPageSchema } from '@/lib/schema';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Services',
