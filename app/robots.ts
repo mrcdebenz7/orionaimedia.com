@@ -7,7 +7,8 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: []
         },
-        sitemap: 'https://orionaimedia.com/sitemap.xml'
+        sitemap: 'https://www.orionaimedia.com/sitemap.xml',
+        host: 'https://www.orionaimedia.com'
     };
 }
 

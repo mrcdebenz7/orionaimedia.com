@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://orionaimedia.com';
+    const baseUrl = 'https://www.orionaimedia.com';
     const lastModified = new Date();
 
     const routes = [

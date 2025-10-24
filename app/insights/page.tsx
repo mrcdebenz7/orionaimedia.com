@@ -5,45 +5,17 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Insights',
-    description: 'Essays and breakdowns on content systems, creative testing, and channel growth.'
+    description: 'Essays and breakdowns on content systems, creative testing, and channel growth.',
+    openGraph: { images: ['/og/insights.png'] },
+    twitter: { images: ['/og/insights.png'], card: 'summary_large_image' }
 };
 
 const posts = [
     {
-        slug: 'content-systems-compound',
-        title: 'Content Systems Compound',
-        date: '2025-01-15',
-        excerpt: 'Why one-off campaigns plateau and repeatable systems scale. A framework for content infrastructure.'
-    },
-    {
-        slug: 'retention-metrics-matter',
-        title: 'Retention Metrics That Matter',
-        date: '2025-01-08',
-        excerpt: 'Beyond views and clicks: the metrics that predict long-term content performance.'
-    },
-    {
-        slug: 'testing-creative-at-scale',
-        title: 'Testing Creative at Scale',
-        date: '2025-01-02',
-        excerpt: 'How to ship 40+ ad variants per month without sacrificing quality or burning out your team.'
-    },
-    {
-        slug: 'youtube-seo-2025',
-        title: 'YouTube SEO in 2025',
-        date: '2024-12-20',
-        excerpt: 'Search, suggested, and browse: optimizing content for each discovery surface.'
-    },
-    {
-        slug: 'podcast-distribution-checklist',
-        title: 'Podcast Distribution Checklist',
-        date: '2024-12-12',
-        excerpt: '12 steps to ensure your podcast reaches every platform and ranks in discovery feeds.'
-    },
-    {
-        slug: 'owned-media-vs-paid',
-        title: 'Owned Media vs. Paid',
-        date: '2024-12-05',
-        excerpt: 'The ROI case for YouTube, podcasts, and newsletters as long-term distribution engines.'
+        slug: '90-day-revamp-playbook',
+        title: '90-Day Revamp Playbook (Coming Soon)',
+        date: '2025-10-23',
+        excerpt: 'Our step-by-step approach to leveling-up speed, UX, and conversions in 90 days.'
     }
 ];
 
@@ -51,6 +23,17 @@ export default function InsightsPage() {
     return (
         <>
             <Header />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'WebPage',
+                        name: 'Insights',
+                        url: 'https://www.orionaimedia.com/insights'
+                    })
+                }}
+            />
             <main className="relative z-content">
                 <section className="max-w-7xl mx-auto px-4 py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">

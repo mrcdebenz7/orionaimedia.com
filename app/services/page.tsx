@@ -1,12 +1,17 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
+import Link from 'next/link';
+import { webPageSchema } from '@/lib/schema';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Services',
-    description: 'Custom builds, revamps, lead-gen microsites, programmatic SEO, CRO + bot integration, and operate-or-flip.'
+    description: 'Custom builds, revamps, lead-gen microsites, programmatic SEO, CRO + bot integration, and operate-or-flip.',
+    alternates: { canonical: 'https://www.orionaimedia.com/services' },
+    openGraph: { images: ['/og/services.png'] },
+    twitter: { images: ['/og/services.png'], card: 'summary_large_image' }
 };
 
 const services = [
@@ -39,6 +44,60 @@ export default function ServicesPage() {
                         </div>
                     ))}
                 </section>
+
+                <section className="max-w-7xl mx-auto px-4 py-12">
+                    <div className="grid gap-4 md:grid-cols-3">
+                        <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
+                            <div className="text-metal-text/90 font-semibold">Revamp Sprint (30–45d)</div>
+                            <ul className="mt-2 text-sm text-metal-text/70 space-y-1">
+                                <li>• Outcomes: faster site, clearer CTAs, improved conversions</li>
+                                <li>• Deliverables: speed/CWV fixes, UX cleanup, CRO flows</li>
+                                <li>• From $X</li>
+                            </ul>
+                        </div>
+                        <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
+                            <div className="text-metal-text/90 font-semibold">Care Plan (monthly)</div>
+                            <ul className="mt-2 text-sm text-metal-text/70 space-y-1">
+                                <li>• Uptime monitoring, updates, security</li>
+                                <li>• CRO tweaks, A/B tests, minor content updates</li>
+                                <li>• From $X/mo</li>
+                            </ul>
+                        </div>
+                        <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
+                            <div className="text-metal-text/90 font-semibold">Programmatic SEO (pilot)</div>
+                            <ul className="mt-2 text-sm text-metal-text/70 space-y-1">
+                                <li>• Template design + structured data</li>
+                                <li>• Indexing strategy and KPIs</li>
+                                <li>• From $X</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="max-w-7xl mx-auto px-4 py-12">
+                    <div className="rounded-panel border border-royal-shade/40 bg-graphite-800/50 p-8">
+                        <h2 className="text-2xl text-gold-gradient font-semibold mb-4">FAQ</h2>
+                        <div className="grid md:grid-cols-2 gap-6 text-metal-text/80 text-sm">
+                            {[
+                                ['How long does a revamp take?', 'Most revamps ship within 30–45 days depending on scope.'],
+                                ['What tech stack do you use?', 'Next.js 14, Tailwind, and modern best practices.'],
+                                ['Can you work with our CMS?', 'Yes—headless CMS preferred. We can migrate or integrate.'],
+                                ['Do you support after launch?', 'Yes—our Care Plan covers updates, monitoring, and CRO tweaks.'],
+                                ['How do we start?', 'Book a discovery call or send details via the contact form.']
+                            ].map(([q, a]) => (
+                                <div key={q as string}>
+                                    <div className="font-semibold text-metal-text mb-1">{q}</div>
+                                    <p className="text-metal-text/70">{a}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema({ name: 'Services', url: 'https://www.orionaimedia.com/services' })) }}
+                />
 
                 <CTA />
             </main>

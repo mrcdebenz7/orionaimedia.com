@@ -1,11 +1,16 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
+import Link from 'next/link';
+import { webPageSchema } from '@/lib/schema';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Method',
-    description: 'Acquire → Improve → Recycle. A simple operating model to compound traffic and lead flow.'
+    description: 'Acquire → Improve → Recycle. A simple operating model to compound traffic and lead flow.',
+    alternates: { canonical: 'https://www.orionaimedia.com/method' },
+    openGraph: { images: ['/og/method.png'] },
+    twitter: { images: ['/og/method.png'], card: 'summary_large_image' }
 };
 
 export default function MethodPage() {
@@ -46,7 +51,16 @@ export default function MethodPage() {
                     </div>
                 </section>
 
+                <section id="revamp" className="max-w-7xl mx-auto px-4 py-12 text-center">
+                    <Link href="/contact?intent=revamp" className="rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-6 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800" onClick={() => (window as any)?.oamTrack?.('cta_click', { cta: 'method_revamp' })}>Start a revamp</Link>
+                </section>
+
                 <CTA />
+
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema({ name: 'Method', url: 'https://www.orionaimedia.com/method' })) }}
+                />
             </main>
             <Footer />
         </>

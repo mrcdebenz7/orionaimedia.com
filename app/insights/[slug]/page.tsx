@@ -139,14 +139,14 @@ export default function InsightPage({ params }: { params: { slug: string } }) {
     const schema = articleSchema({
         title: post.title,
         description: post.content.slice(0, 160),
-        url: `https://orionaimedia.com/insights/${params.slug}`,
+        url: `https://www.orionaimedia.com/insights/${params.slug}`,
         datePublished: post.date
     });
 
     const breadcrumb = breadcrumbSchema([
-        { name: 'Home', url: 'https://orionaimedia.com' },
-        { name: 'Insights', url: 'https://orionaimedia.com/insights' },
-        { name: post.title, url: `https://orionaimedia.com/insights/${params.slug}` }
+        { name: 'Home', url: 'https://www.orionaimedia.com' },
+        { name: 'Insights', url: 'https://www.orionaimedia.com/insights' },
+        { name: post.title, url: `https://www.orionaimedia.com/insights/${params.slug}` }
     ]);
 
     return (
