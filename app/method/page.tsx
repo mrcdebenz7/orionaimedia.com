@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import Link from 'next/link';
+import TrackedLink from '@/components/TrackedLink';
 import { webPageSchema } from '@/lib/schema';
 import type { Metadata } from 'next';
 
@@ -52,7 +53,7 @@ export default function MethodPage() {
                 </section>
 
                 <section id="revamp" className="max-w-7xl mx-auto px-4 py-12 text-center">
-                    <Link href="/contact?intent=revamp" className="rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-6 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800" onClick={() => (window as any)?.oamTrack?.('cta_click', { cta: 'method_revamp' })}>Start a revamp</Link>
+                    <TrackedLink href="/contact?intent=revamp" cta="method_revamp" className="rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-6 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800">Start a revamp</TrackedLink>
                 </section>
 
                 <CTA />

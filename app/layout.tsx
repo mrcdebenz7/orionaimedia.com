@@ -93,7 +93,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <a
                         href="/contact#book"
                         className="pointer-events-auto rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-5 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800"
-                        onClick={() => (window as any)?.oamTrack?.('cta_click', { cta: 'mobile_sticky_book' })}
                     >
                         Book a call
                     </a>
