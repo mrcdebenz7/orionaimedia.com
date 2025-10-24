@@ -1,7 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { track } from '@/lib/track';
+import TrackedLink from '@/components/TrackedLink';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -46,8 +46,8 @@ export default function HomePage() {
                             Human intuition + algorithmic precision for compounding growth.
                         </p>
                         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                            <Link href="/contact?intent=revamp" className="rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-5 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800 transition-colors" onClick={() => track('cta_click', { cta: 'start_revamp_home' })}>Start a revamp</Link>
-                            <Link href="/contact?intent=microsite" className="rounded-button border border-royal-shade/50 px-5 py-3 text-sm font-semibold text-pulse-cyan hover:text-pulse-hover" onClick={() => track('cta_click', { cta: 'microsite_home' })}>Build a lead-gen microsite</Link>
+                            <TrackedLink href="/contact?intent=revamp" cta="start_revamp_home" className="rounded-button bg-gold-g2/10 border border-gold-g1/40 shadow-gold-emboss px-5 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800 transition-colors">Start a revamp</TrackedLink>
+                            <TrackedLink href="/contact?intent=microsite" cta="microsite_home" className="rounded-button border border-royal-shade/50 px-5 py-3 text-sm font-semibold text-pulse-cyan hover:text-pulse-hover">Build a lead-gen microsite</TrackedLink>
                         </div>
                     </div>
                 </section>

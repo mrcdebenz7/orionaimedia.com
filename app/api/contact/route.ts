@@ -10,8 +10,8 @@ const MAX_HITS = 5; // 5 submissions per window per IP
 function getClientIp(req: NextRequest): string {
   const xff = req.headers.get('x-forwarded-for');
   if (xff) return xff.split(',')[0].trim();
-  // @ts-expect-error - ip may be available on some platforms
-  return (req as any).ip || 'unknown';
+  const possibleIp = (req as unknown as { ip?: string }).ip;
+  return possibleIp || 'unknown';
 }
 
 function rateLimit(ip: string): boolean {
