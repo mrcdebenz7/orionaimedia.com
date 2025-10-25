@@ -5,7 +5,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Channels',
-    description: 'Podcast, YouTube, and Newsletter—owned media engines that compound reach and build audience equity.'
+    description: 'Podcast, YouTube, and Newsletter—owned media engines that compound reach and build audience equity.',
+    alternates: { canonical: 'https://www.orionaimedia.com/channels' },
+    openGraph: { url: 'https://www.orionaimedia.com/channels', images: ['/og/insights'] },
+    twitter: { card: 'summary_large_image', images: ['/og/insights'] }
 };
 
 export default function ChannelsPage() {

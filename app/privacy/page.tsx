@@ -4,7 +4,9 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Privacy Policy',
-    description: 'How Orion Digital AI Assets collects, uses, and protects personal data on orionaimedia.com.'
+    description: 'How Orion Digital AI Assets collects, uses, and protects personal data on orionaimedia.com.',
+    alternates: { canonical: 'https://www.orionaimedia.com/privacy' },
+    openGraph: { url: 'https://www.orionaimedia.com/privacy' }
 };
 
 export default function PrivacyPage() {

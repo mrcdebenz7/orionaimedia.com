@@ -11,13 +11,14 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Orion Ascend Media',
         description: 'Content systems that compound distribution and growth.',
-        images: ['/og/home.png']
+        url: 'https://www.orionaimedia.com',
+        images: ['/og/home']
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Orion Ascend Media',
         description: 'Content systems that compound distribution and growth.',
-        images: ['/og/home.png']
+        images: ['/og/home']
     }
 };
 

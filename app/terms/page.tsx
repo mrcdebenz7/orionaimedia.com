@@ -4,7 +4,9 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Terms of Service',
-    description: 'Terms and conditions for using orionaimedia.com by Orion Digital AI Assets.'
+    description: 'Terms and conditions for using orionaimedia.com by Orion Digital AI Assets.',
+    alternates: { canonical: 'https://www.orionaimedia.com/terms' },
+    openGraph: { url: 'https://www.orionaimedia.com/terms' }
 };
 
 export default function TermsPage() {

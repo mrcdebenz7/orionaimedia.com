@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description:
     'Start a revamp, launch a microsite, or request a proposal. Real responses, no spam.',
   alternates: { canonical: 'https://www.orionaimedia.com/contact' },
-  openGraph: { images: ['/og/contact.png'] },
-  twitter: { images: ['/og/contact.png'], card: 'summary_large_image' }
+  openGraph: { images: ['/og/contact'] },
+  twitter: { images: ['/og/contact'], card: 'summary_large_image' }
 };
 
 export default function ContactPage({

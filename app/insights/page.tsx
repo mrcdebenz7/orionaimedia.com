@@ -6,8 +6,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Insights',
     description: 'Essays and breakdowns on content systems, creative testing, and channel growth.',
-    openGraph: { images: ['/og/insights.png'] },
-    twitter: { images: ['/og/insights.png'], card: 'summary_large_image' }
+    alternates: { canonical: 'https://www.orionaimedia.com/insights' },
+    openGraph: { url: 'https://www.orionaimedia.com/insights', images: ['/og/insights'] },
+    twitter: { images: ['/og/insights'], card: 'summary_large_image' }
 };
 
 const posts = [

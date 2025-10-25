@@ -14,6 +14,9 @@ const titles: Record<string, { t: string; d: string }> = {
   contact:  { t: 'Let’s Start', d: 'Book a 30-min revamp consult.' },
   insights: { t: 'Insights', d: 'Short, actionable playbooks.' },
   about:    { t: 'About', d: 'Orion Ascend Media.' },
+  channels: { t: 'Channels', d: 'Podcast, YouTube, Newsletter.' },
+  assets:   { t: 'Assets & Holdings', d: 'Brand and content inventory.' },
+  designs:  { t: 'Design Examples', d: 'UI explorations & brand applications.' },
 };
 
 export async function GET(req: Request, { params }: { params: { slug: string } }) {

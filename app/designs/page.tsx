@@ -5,7 +5,9 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Design Examples',
-    description: 'A curated gallery of Orion Ascend Media design work, UI explorations, and brand applications.'
+    description: 'A curated gallery of Orion Ascend Media design work, UI explorations, and brand applications.',
+    alternates: { canonical: 'https://www.orionaimedia.com/designs' },
+    openGraph: { url: 'https://www.orionaimedia.com/designs' }
 };
 
 type DesignItem = {
