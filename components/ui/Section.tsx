@@ -1,6 +1,21 @@
 import React from 'react';
 
-export default function Section({ className = '', children, as: Tag = 'section' as any }: { className?: string; children: React.ReactNode; as?: keyof JSX.IntrinsicElements }) {
-  const Component: any = Tag;
-  return <Component className={`relative ${className}`}>{children}</Component>;
+type SectionProps<T extends React.ElementType = 'section'> = {
+  className?: string;
+  children: React.ReactNode;
+  as?: T;
+};
+
+export default function Section<T extends React.ElementType = 'section'>({
+  className = '',
+  children,
+  as,
+  ...rest
+}: SectionProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof SectionProps<T>>) {
+  const Component = as || 'section';
+  return (
+    <Component className={`relative ${className}`} {...rest}>
+      {children}
+    </Component>
+  );
 }
