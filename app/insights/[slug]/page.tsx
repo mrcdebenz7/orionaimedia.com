@@ -128,7 +128,21 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     if (!post) return { title: 'Not Found' };
     return {
         title: post.title,
-        description: post.content.slice(0, 160)
+        description: post.content.slice(0, 160),
+        alternates: { canonical: `https://www.orionaimedia.com/insights/${params.slug}` },
+        openGraph: {
+            type: 'article',
+            url: `https://www.orionaimedia.com/insights/${params.slug}`,
+            title: post.title,
+            description: post.content.slice(0, 160),
+            images: [{ url: `/og/insights` }]
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.content.slice(0, 160),
+            images: ['/og/insights']
+        }
     };
 }
 

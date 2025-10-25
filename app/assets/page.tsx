@@ -4,7 +4,9 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Assets & Holdings',
-    description: 'A living inventory of Orion Ascend Media brand assets, design files, and content holdings.'
+    description: 'A living inventory of Orion Ascend Media brand assets, design files, and content holdings.',
+    alternates: { canonical: 'https://www.orionaimedia.com/assets' },
+    openGraph: { url: 'https://www.orionaimedia.com/assets' }
 };
 
 type AssetItem = {

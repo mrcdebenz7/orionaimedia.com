@@ -12,16 +12,6 @@ const nextConfig = {
             },
             // Legacy slugs
             {
-                source: '/designs',
-                destination: '/work',
-                permanent: true
-            },
-            {
-                source: '/assets',
-                destination: '/work',
-                permanent: true
-            },
-            {
                 source: '/blog',
                 destination: '/insights',
                 permanent: true

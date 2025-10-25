@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import TrackedLink from '@/components/TrackedLink';
+import AnimateInClient from '@/components/AnimateInClient';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,13 +12,14 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Orion Ascend Media',
         description: 'Content systems that compound distribution and growth.',
-        images: ['/og/home.png']
+        url: 'https://www.orionaimedia.com',
+        images: ['/og/home']
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Orion Ascend Media',
         description: 'Content systems that compound distribution and growth.',
-        images: ['/og/home.png']
+        images: ['/og/home']
     }
 };
 
@@ -36,7 +38,7 @@ export default function HomePage() {
                                 <span className="h-1.5 w-1.5 rounded-full bg-gold-g1 animate-sparkle [animation-delay:.35s]" />
                                 <span className="h-1.5 w-1.5 rounded-full bg-gold-g2 animate-sparkle [animation-delay:.7s]" />
                             </div>
-                            <h1 className="gold-emboss text-4xl md:text-6xl lg:text-7xl leading-tight tracking-[0.02em]">ORION ASCEND</h1>
+                            <h1 className="gold-emboss text-4xl md:text-6xl lg:text-7xl leading-tight tracking-[0.02em]" aria-label="Orion Ascend Media">ORION ASCEND</h1>
                             <div className="mt-2 text-royal-shade/80 tracking-widest" style={{ fontFamily: 'Cinzel, ui-serif' }}>MEDIA</div>
                         </div>
                         <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-metal-text/90">
@@ -53,7 +55,7 @@ export default function HomePage() {
                 </section>
 
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
+                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-12" y={16}>
                     <div className="small-caps text-gold-g1/80">About</div>
                     <div className="mt-4 rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
                         <p className="text-metal-text/90">
@@ -63,29 +65,29 @@ export default function HomePage() {
                             Backed by <a className="text-pulse-cyan hover:text-pulse-hover" href="https://orionapexcapital.com" target="_blank" rel="noreferrer">Orion Apex Capital</a>. Seamless hand-offs to <a className="text-pulse-cyan hover:text-pulse-hover" href="https://orionintelligenceagency.com" target="_blank" rel="noreferrer">Orion Intelligence Agency</a>.
                         </div>
                     </div>
-                </section>
+                </AnimateInClient>
 
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
+                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-12" delay={0.05}>
                     <div className="small-caps text-gold-g1/80">Operating model</div>
                     <div className="mt-4 grid gap-4 md:grid-cols-3">
-                        <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
+                        <AnimateInClient className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6" as="div" delay={0.05}>
                             <div className="text-metal-text/90 font-semibold">Acquire</div>
                             <p className="mt-2 text-sm text-metal-text/70">Curated buys + greenfield builds in verticals we know (fitness, wellness/spa, local services, e-com sub-niches).</p>
-                        </div>
-                        <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
+                        </AnimateInClient>
+                        <AnimateInClient className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6" as="div" delay={0.1}>
                             <div className="text-metal-text/90 font-semibold">Improve</div>
                             <p className="mt-2 text-sm text-metal-text/70">Speed + Core Web Vitals, schema, content upgrades (AI-assisted, human-edited), CRO, booking embeds, and the OIA bot for FAQ + capture.</p>
-                        </div>
-                        <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
+                        </AnimateInClient>
+                        <AnimateInClient className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6" as="div" delay={0.15}>
                             <div className="text-metal-text/90 font-semibold">Recycle</div>
                             <p className="mt-2 text-sm text-metal-text/70">Keep high-RPM assets, or flip after 90–180 days when uplift and stability justify it.</p>
-                        </div>
+                        </AnimateInClient>
                     </div>
-                </section>
+                </AnimateInClient>
 
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
+                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-12" delay={0.05}>
                     <div className="small-caps text-gold-g1/80">Services</div>
                     <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         {[
@@ -95,20 +97,20 @@ export default function HomePage() {
                             { title: 'D. Content & Programmatic SEO', body: 'Editorial calendar + programmatic pages where defensible; human QA.' },
                             { title: 'E. CRO + Bot Integration', body: 'Forms, booking embeds (Vagaro/Mindbody), and OIA chatbot for capture/deflection.' },
                             { title: 'F. Operate or Flip', body: 'We’ll run it (content + A/B + partners) or prep a clean exit.' }
-                        ].map((s) => (
-                            <div key={s.title} className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6 hover:border-pulse-hover/60 transition-colors">
+                        ].map((s, i) => (
+                            <AnimateInClient key={s.title} as="div" className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6 hover:border-pulse-hover/60 transition-colors" delay={0.05 * i}>
                                 <div className="text-metal-text/90 font-semibold">{s.title}</div>
                                 <p className="mt-2 text-sm text-metal-text/70">{s.body}</p>
                                 <div className="mt-4">
                                     <Link href="/contact?intent=revamp" className="text-pulse-cyan hover:text-pulse-hover text-sm">Start a revamp</Link>
                                 </div>
-                            </div>
+                            </AnimateInClient>
                         ))}
                     </div>
-                </section>
+                </AnimateInClient>
 
                 {/* Industries band for lead-gen */}
-                <section className="max-w-7xl mx-auto px-4 py-12">
+                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-12">
                     <div className="small-caps text-gold-g1/80">Who we serve</div>
                     <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                         {[
@@ -116,17 +118,17 @@ export default function HomePage() {
                             'Med‑spa / Wellness',
                             'Local Services',
                             'Niche e‑commerce & Newsletters'
-                        ].map((label) => (
-                            <a key={label} href="/contact?intent=revamp" className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-5 hover:border-pulse-hover/60 transition-colors text-center">
+                        ].map((label, i) => (
+                            <AnimateInClient key={label} as="a" className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-5 hover:border-pulse-hover/60 transition-colors text-center" delay={0.04 * i} href="/contact?intent=revamp">
                                 <div className="text-metal-text/90 font-semibold">{label}</div>
                                 <div className="mt-2 text-pulse-cyan text-sm">Start a revamp →</div>
-                            </a>
+                            </AnimateInClient>
                         ))}
                     </div>
-                </section>
+                </AnimateInClient>
 
 
-                <section className="relative my-16">
+                <AnimateInClient as="section" className="relative my-16" y={20}>
                     <div className="max-w-7xl mx-auto px-4 py-10 rounded-panel border border-royal-shade/40 bg-graphite-800/70 text-center">
                         <div className="small-caps text-metal-text/80">Book a Discovery Call</div>
                         <div className="mt-3 flex items-center justify-center gap-3">
@@ -134,7 +136,7 @@ export default function HomePage() {
                             <Link href="/contact?intent=microsite" className="rounded-button border border-royal-shade/50 px-5 py-3 text-sm font-semibold text-pulse-cyan hover:text-pulse-hover">Build a lead-gen microsite</Link>
                         </div>
                     </div>
-                </section>
+                </AnimateInClient>
             </main>
             <Footer />
         </>

@@ -5,9 +5,14 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'About',
-    description: 'We acquire, improve, and recycle high‑intent web assets—and build or revamp client sites to generate qualified leads.',
-    openGraph: { images: ['/og/about.png'] },
-    twitter: { images: ['/og/about.png'], card: 'summary_large_image' }
+    description:
+        'We acquire, improve, and recycle high‑intent web assets—and build or revamp client sites to generate qualified leads.',
+    alternates: { canonical: 'https://www.orionaimedia.com/about' },
+    openGraph: {
+        url: 'https://www.orionaimedia.com/about',
+        images: ['/og/about']
+    },
+    twitter: { images: ['/og/about'], card: 'summary_large_image' }
 };
 
 export default function AboutPage() {

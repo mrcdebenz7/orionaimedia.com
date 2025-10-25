@@ -16,7 +16,7 @@ export default function Footer() {
         ['Terms', '/terms']
     ] as const;
     return (
-        <footer className="mt-16 border-t border-royal-shade/30 bg-graphite-900/70">
+        <footer className="mt-16 border-t border-royal-shade/30 bg-graphite-900/70" role="contentinfo">
             <div className="max-w-7xl mx-auto px-4 py-10 grid gap-6 md:grid-cols-4">
                 <div className="col-span-1">
                     <div className="flex items-center gap-2">
@@ -41,7 +41,7 @@ export default function Footer() {
                     </div>
                     <p className="mt-3 text-sm text-metal-text/70">Imagine. Create. Transcend.</p>
                 </div>
-                <nav className="col-span-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                <nav className="col-span-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3" aria-label="Footer navigation">
                     {nav.map(([label, href]) => (
                         <Link key={href} href={href} className="text-sm text-metal-text/80 hover:text-pulse-hover">
                             {label}

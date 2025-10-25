@@ -5,7 +5,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Packages',
-    description: 'Launch Pack, Revamp Sprint, and Lead‑Gen Microsite packages with Request Proposal CTAs.'
+    description: 'Launch Pack, Revamp Sprint, and Lead‑Gen Microsite packages with Request Proposal CTAs.',
+    alternates: { canonical: 'https://www.orionaimedia.com/packages' },
+    openGraph: { url: 'https://www.orionaimedia.com/packages', images: ['/og/packages'] },
+    twitter: { card: 'summary_large_image', images: ['/og/packages'] }
 };
 
 export default function PackagesPage() {

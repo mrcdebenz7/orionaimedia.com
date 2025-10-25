@@ -11,6 +11,16 @@ body {
     @apply bg-graphite-900 text-metal-text antialiased;
 }
 
+/* Smooth scrolling, but respect reduced-motion */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+}
+
 .body-bg {
     @apply bg-starfield;
     background-color: #0E141B;
@@ -38,4 +48,10 @@ body {
 
 .rounded-button {
     @apply rounded-[12px];
+}
+
+/* Focus visible styles for better accessibility */
+:where(a, button, [role="button"], input, select, textarea):focus-visible {
+    outline: 2px solid theme('colors.pulse.hover');
+    outline-offset: 2px;
 }

@@ -20,22 +20,38 @@ export const metadata: Metadata = {
     },
     description:
         'Orion Ascend Media (Orion Digital AI) builds content systems that compound distribution, lower CAC, and lift retention.',
+    alternates: { canonical: 'https://www.orionaimedia.com' },
     openGraph: {
         type: 'website',
+        siteName: 'Orion Ascend Media',
         title: 'Orion Ascend Media',
-        description:
-            'Content systems that compound distribution and growth.',
+        description: 'Content systems that compound distribution and growth.',
         url: 'https://www.orionaimedia.com',
-        images: ['/OrionAscendMain.png']
+        images: [
+            {
+                url: '/og.png',
+                width: 1200,
+                height: 630,
+                alt: 'Orion Ascend Media — Acquire • Improve • Recycle'
+            }
+        ]
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Orion Ascend Media',
-        description:
-            'Content systems that compound distribution and growth.',
-        images: ['/OrionAscendMain.png']
+        description: 'Content systems that compound distribution and growth.',
+        images: ['/og.png']
     },
-    icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' }
+    icons: {
+        icon: [
+            { url: '/crest.svg', type: 'image/svg+xml' },
+            { url: '/og.png', type: 'image/png', sizes: '1200x630' }
+        ],
+        apple: [
+            { url: '/crest-transparent-1024.png', sizes: '1024x1024', type: 'image/png' }
+        ]
+    },
+    manifest: '/site.webmanifest'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -44,6 +60,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" className="dark">
             <head>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="mobile-web-app-capable" content="yes" />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
@@ -55,12 +75,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                             '@context': 'https://schema.org',
                             '@type': 'WebSite',
                             url: 'https://www.orionaimedia.com',
-                            name: 'Orion Ascend Media',
-                            potentialAction: {
-                                '@type': 'SearchAction',
-                                target: 'https://www.orionaimedia.com/search?q={query}',
-                                'query-input': 'required name=query'
-                            }
+                            name: 'Orion Ascend Media'
                         })
                     }}
                 />

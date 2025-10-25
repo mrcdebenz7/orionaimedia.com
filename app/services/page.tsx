@@ -3,14 +3,15 @@ import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import Link from 'next/link';
 import { webPageSchema } from '@/lib/schema';
+import AnimateInClient from '@/components/AnimateInClient';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Services',
     description: 'Custom builds, revamps, lead-gen microsites, programmatic SEO, CRO + bot integration, and operate-or-flip.',
     alternates: { canonical: 'https://www.orionaimedia.com/services' },
-    openGraph: { images: ['/og/services.png'] },
-    twitter: { images: ['/og/services.png'], card: 'summary_large_image' }
+    openGraph: { url: 'https://www.orionaimedia.com/services', images: ['/og/services'] },
+    twitter: { images: ['/og/services'], card: 'summary_large_image' }
 };
 
 const services = [
@@ -27,24 +28,24 @@ export default function ServicesPage() {
         <>
             <Header />
             <main className="relative z-content">
-                <section className="max-w-7xl mx-auto px-4 py-16">
+                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">Services</h1>
                     <p className="mt-4 text-center text-metal-text/80 max-w-3xl mx-auto">
                         We acquire, improve, and recycle high‑intent web assets—and we also build and revamp client sites to generate qualified leads.
                     </p>
-                </section>
+                </AnimateInClient>
 
                 <section className="max-w-7xl mx-auto px-4 pb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {services.map((s) => (
-                        <div key={s.title} className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6 hover:border-pulse-hover/60 transition-colors">
+                    {services.map((s, i) => (
+                        <AnimateInClient key={s.title} className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6 hover:border-pulse-hover/60 transition-colors" delay={0.05 * i}>
                             <div className="text-metal-text/90 font-semibold">{s.title}</div>
                             <p className="mt-2 text-sm text-metal-text/70">{s.body}</p>
                             <div className="mt-4"><Link href={s.cta} className="text-pulse-cyan hover:text-pulse-hover text-sm">Start a revamp</Link></div>
-                        </div>
+                        </AnimateInClient>
                     ))}
                 </section>
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
+                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-12" y={18}>
                     <div className="grid gap-4 md:grid-cols-3">
                         <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
                             <div className="text-metal-text/90 font-semibold">Revamp Sprint (30–45d)</div>
@@ -71,7 +72,7 @@ export default function ServicesPage() {
                             </ul>
                         </div>
                     </div>
-                </section>
+                </AnimateInClient>
 
                 <section className="max-w-7xl mx-auto px-4 py-12">
                     <div className="rounded-panel border border-royal-shade/40 bg-graphite-800/50 p-8">
@@ -95,7 +96,61 @@ export default function ServicesPage() {
 
                 <script
                     type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema({ name: 'Services', url: 'https://www.orionaimedia.com/services' })) }}
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(webPageSchema({ name: 'Services', url: 'https://www.orionaimedia.com/services' }))
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    // FAQPage structured data
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'FAQPage',
+                            mainEntity: [
+                                {
+                                    '@type': 'Question',
+                                    name: 'How long does a revamp take?',
+                                    acceptedAnswer: {
+                                        '@type': 'Answer',
+                                        text: 'Most revamps ship within 30–45 days depending on scope.'
+                                    }
+                                },
+                                {
+                                    '@type': 'Question',
+                                    name: 'What tech stack do you use?',
+                                    acceptedAnswer: {
+                                        '@type': 'Answer',
+                                        text: 'Next.js 14, Tailwind, and modern best practices.'
+                                    }
+                                },
+                                {
+                                    '@type': 'Question',
+                                    name: 'Can you work with our CMS?',
+                                    acceptedAnswer: {
+                                        '@type': 'Answer',
+                                        text: 'Yes—headless CMS preferred. We can migrate or integrate.'
+                                    }
+                                },
+                                {
+                                    '@type': 'Question',
+                                    name: 'Do you support after launch?',
+                                    acceptedAnswer: {
+                                        '@type': 'Answer',
+                                        text: 'Yes—our Care Plan covers updates, monitoring, and CRO tweaks.'
+                                    }
+                                },
+                                {
+                                    '@type': 'Question',
+                                    name: 'How do we start?',
+                                    acceptedAnswer: {
+                                        '@type': 'Answer',
+                                        text: 'Book a discovery call or send details via the contact form.'
+                                    }
+                                }
+                            ]
+                        })
+                    }}
                 />
 
                 <CTA />
