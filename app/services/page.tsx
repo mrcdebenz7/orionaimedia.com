@@ -4,6 +4,7 @@ import CTA from '@/components/CTA';
 import Link from 'next/link';
 import { webPageSchema } from '@/lib/schema';
 import AnimateInClient from '@/components/AnimateInClient';
+import Container from '@/components/ui/Container';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -28,16 +29,16 @@ export default function ServicesPage() {
         <>
             <Header />
             <main className="relative z-content">
-                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-16">
+                <AnimateInClient as="section" className="container-edge py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">Services</h1>
                     <p className="mt-4 text-center text-metal-text/80 max-w-3xl mx-auto">
                         We acquire, improve, and recycle high‑intent web assets—and we also build and revamp client sites to generate qualified leads.
                     </p>
                 </AnimateInClient>
 
-                <section className="max-w-7xl mx-auto px-4 pb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <section className="container-edge pb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     {services.map((s, i) => (
-                        <AnimateInClient key={s.title} className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6 hover:border-pulse-hover/60 transition-colors" delay={0.05 * i}>
+                        <AnimateInClient key={s.title} className="surface-card p-6 hover:border-pulse-hover/60 transition-colors" delay={0.05 * i}>
                             <div className="text-metal-text/90 font-semibold">{s.title}</div>
                             <p className="mt-2 text-sm text-metal-text/70">{s.body}</p>
                             <div className="mt-4"><Link href={s.cta} className="text-pulse-cyan hover:text-pulse-hover text-sm">Start a revamp</Link></div>
@@ -45,9 +46,9 @@ export default function ServicesPage() {
                     ))}
                 </section>
 
-                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-12" y={18}>
+                <AnimateInClient as="section" className="container-edge py-12" y={18}>
                     <div className="grid gap-4 md:grid-cols-3">
-                        <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
+                        <div className="surface-card p-6">
                             <div className="text-metal-text/90 font-semibold">Revamp Sprint (30–45d)</div>
                             <ul className="mt-2 text-sm text-metal-text/70 space-y-1">
                                 <li>• Outcomes: faster site, clearer CTAs, improved conversions</li>
@@ -55,7 +56,7 @@ export default function ServicesPage() {
                                 <li>• From $X</li>
                             </ul>
                         </div>
-                        <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
+                        <div className="surface-card p-6">
                             <div className="text-metal-text/90 font-semibold">Care Plan (monthly)</div>
                             <ul className="mt-2 text-sm text-metal-text/70 space-y-1">
                                 <li>• Uptime monitoring, updates, security</li>
@@ -63,7 +64,7 @@ export default function ServicesPage() {
                                 <li>• From $X/mo</li>
                             </ul>
                         </div>
-                        <div className="rounded-panel bg-graphite-800/70 border border-royal-shade/40 p-6">
+                        <div className="surface-card p-6">
                             <div className="text-metal-text/90 font-semibold">Programmatic SEO (pilot)</div>
                             <ul className="mt-2 text-sm text-metal-text/70 space-y-1">
                                 <li>• Template design + structured data</li>
@@ -74,8 +75,8 @@ export default function ServicesPage() {
                     </div>
                 </AnimateInClient>
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
-                    <div className="rounded-panel border border-royal-shade/40 bg-graphite-800/50 p-8">
+                <section className="container-edge py-12">
+                    <div className="surface-panel p-8">
                         <h2 className="text-2xl text-gold-gradient font-semibold mb-4">FAQ</h2>
                         <div className="grid md:grid-cols-2 gap-6 text-metal-text/80 text-sm">
                             {[
