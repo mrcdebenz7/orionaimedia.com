@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Start a revamp, launch a microsite, or request a proposal. Real responses, no spam.',
   alternates: { canonical: 'https://www.orionaimedia.com/contact' },
-  openGraph: { images: ['/og/contact'] },
+  openGraph: { url: 'https://www.orionaimedia.com/contact', images: ['/og/contact'] },
   twitter: { images: ['/og/contact'], card: 'summary_large_image' }
 };
 
