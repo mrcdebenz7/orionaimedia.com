@@ -49,12 +49,14 @@ export default function InsightsPage() {
                 <section className="max-w-7xl mx-auto px-4 py-12">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {posts.map((post, i) => (
-                            <AnimateInClient key={post.slug} as={Link as any} href={`/insights/${post.slug}`} className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-6 hover:border-pulse-hover/60 transition-colors" delay={0.05 * i}>
-                                <div className="text-xs text-pulse-cyan uppercase tracking-wide mb-2">
-                                    {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                                </div>
-                                <h3 className="text-xl text-metal-text/90 font-semibold mb-3">{post.title}</h3>
-                                <p className="text-sm text-metal-text/70">{post.excerpt}</p>
+                            <AnimateInClient key={post.slug} className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-6 hover:border-pulse-hover/60 transition-colors" delay={0.05 * i}>
+                                <Link href={`/insights/${post.slug}`}>
+                                    <div className="text-xs text-pulse-cyan uppercase tracking-wide mb-2">
+                                        {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                    </div>
+                                    <h3 className="text-xl text-metal-text/90 font-semibold mb-3">{post.title}</h3>
+                                    <p className="text-sm text-metal-text/70">{post.excerpt}</p>
+                                </Link>
                             </AnimateInClient>
                         ))}
                     </div>
