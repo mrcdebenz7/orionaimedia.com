@@ -79,7 +79,16 @@ export default {
             borderRadius: {
                 panel: '16px',
                 button: '12px'
-            }
+            },
+            typography: ({ theme }) => ({
+                DEFAULT: {
+                    css: {
+                        color: theme('colors.metal.text'),
+                        h1: { letterSpacing: theme('letterSpacing.heading') },
+                        a: { color: theme('colors.pulse.cyan') }
+                    }
+                }
+            })
         }
     },
     plugins: [

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { track } from '@/lib/track';
+import Logo from '@/components/ui/Logo';
+import { ButtonLink } from '@/components/ui/Button';
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -26,28 +28,9 @@ export default function Header() {
     const pathname = usePathname();
     return (
         <header className="sticky top-0 z-header backdrop-blur bg-graphite-900/70 border-b border-royal-shade/30">
-            <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+            <div className="container-edge py-3 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-3 group" aria-label="Orion Ascend Media — Home">
-                    <svg width="32" height="32" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                        <defs>
-                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style={{ stopColor: '#FFF1C2' }} />
-                                <stop offset="45%" style={{ stopColor: '#E6C56E' }} />
-                                <stop offset="100%" style={{ stopColor: '#B3842A' }} />
-                            </linearGradient>
-                            <radialGradient id="blueGlobe" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" style={{ stopColor: '#183B73' }} />
-                                <stop offset="100%" style={{ stopColor: '#0E2F63' }} />
-                            </radialGradient>
-                        </defs>
-                        <circle cx="64" cy="64" r="58" stroke="url(#goldGrad)" strokeWidth="6" fill="none" opacity="0.95" />
-                        <circle cx="64" cy="64" r="52" stroke="url(#goldGrad)" strokeWidth="2.5" fill="none" opacity="0.75" />
-                        <circle cx="64" cy="64" r="30" fill="url(#blueGlobe)" />
-                        <path d="M 64 49 A 15 15 0 0 1 64 79 A 7.5 7.5 0 0 0 64 64 A 7.5 7.5 0 0 1 64 49 Z" fill="url(#goldGrad)" opacity="0.9" />
-                        <path d="M 64 49 A 15 15 0 0 0 64 79 A 7.5 7.5 0 0 1 64 64 A 7.5 7.5 0 0 0 64 49 Z" fill="#0E2F63" />
-                        <circle cx="64" cy="56.5" r="2.8" fill="#0E2F63" />
-                        <circle cx="64" cy="71.5" r="2.8" fill="url(#goldGrad)" />
-                    </svg>
+                    <Logo className="h-8 w-8" />
                     <span className="text-lg font-semibold text-gold-gradient tracking-wide" style={{ fontFamily: 'Cinzel, ui-serif' }}>
                         ORION ASCEND
                     </span>
@@ -66,9 +49,10 @@ export default function Header() {
                             </Link>
                         );
                     })}
+                    <ButtonLink href="/contact#book" className="ml-2">Book a call</ButtonLink>
                 </nav>
                 <button
-                    className="md:hidden rounded-md px-3 py-2 border border-royal-shade/50"
+                    className="md:hidden rounded-button px-3 py-2 border border-royal-shade/50"
                     type="button"
                     onClick={() => setOpen(!open)}
                     aria-expanded={open}
@@ -88,7 +72,7 @@ export default function Header() {
                 </div>
             </div>
             {open && (
-                <div id="mobile-nav" className="md:hidden px-4 pb-4 grid gap-2" aria-label="Mobile navigation">
+                <div id="mobile-nav" className="md:hidden container-edge pb-4 grid gap-2" aria-label="Mobile navigation">
                     {nav.map(([label, href]) => {
                         const active = pathname === href;
                         return (
@@ -96,13 +80,14 @@ export default function Header() {
                                 key={href}
                                 href={href}
                                 aria-current={active ? 'page' : undefined}
-                                className={`rounded-md px-3 py-2 bg-graphite-800/70 hover:bg-graphite-800 border border-royal-shade/40${active ? ' border-pulse-hover/60' : ''}`}
+                                className={`rounded-button px-3 py-2 bg-graphite-800/70 hover:bg-graphite-800 border border-royal-shade/40${active ? ' border-pulse-hover/60' : ''}`}
                                 onClick={() => setOpen(false)}
                             >
                                 {label}
                             </Link>
                         );
                     })}
+                    <ButtonLink href="/contact#book" className="justify-self-start">Book a call</ButtonLink>
                 </div>
             )}
         </header>

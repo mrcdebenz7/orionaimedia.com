@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import AnimateInClient from '@/components/AnimateInClient';
+import Container from '@/components/ui/Container';
 
 export const metadata: Metadata = {
     title: 'Design Examples',
@@ -32,7 +33,7 @@ export default function DesignsPage() {
         <>
             <Header />
             <main className="relative z-content">
-                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-16">
+                <AnimateInClient as="section" className="container-edge py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">
                         Design Examples
                     </h1>
@@ -41,14 +42,14 @@ export default function DesignsPage() {
                     </p>
                 </AnimateInClient>
 
-                <section className="max-w-7xl mx-auto px-4 pb-16">
-                    <div className="small-caps text-gold-g1/80 mb-4">Gallery</div>
+                <section className="container-edge pb-16">
+                    <div className="badge mb-4">Gallery</div>
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {designs.map((item, i) => (
                             <AnimateInClient
                                 key={item.title}
                                 as="a"
-                                className="group rounded-panel border border-royal-shade/40 bg-graphite-800/70 overflow-hidden hover:border-pulse-hover/60 transition-colors"
+                                className="group surface-card overflow-hidden hover:border-pulse-hover/60 transition-colors"
                                 href={item.href || '#'}
                                 delay={0.05 * i}
                             >

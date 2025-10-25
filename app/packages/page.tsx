@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PackagesTable from '@/components/PackagesTable';
 import type { Metadata } from 'next';
+import Container from '@/components/ui/Container';
 
 export const metadata: Metadata = {
     title: 'Packages',
@@ -16,7 +17,7 @@ export default function PackagesPage() {
         <>
             <Header />
             <main className="relative z-content">
-                <section className="max-w-7xl mx-auto px-4 py-16">
+                <section className="container-edge py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">
                         Packages
                     </h1>
@@ -26,12 +27,12 @@ export default function PackagesPage() {
                     </p>
                 </section>
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
+                <section className="container-edge py-12">
                     <PackagesTable />
                 </section>
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
-                    <div className="rounded-panel border border-royal-shade/40 bg-graphite-800/50 p-8">
+                <section className="container-edge py-12">
+                    <div className="surface-panel p-8">
                         <h2 className="text-2xl text-gold-gradient font-semibold mb-4">What's Included</h2>
                         <div className="grid md:grid-cols-2 gap-6 text-metal-text/80">
                             <div>
@@ -58,7 +59,7 @@ export default function PackagesPage() {
                     </div>
                 </section>
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
+                <section className="container-edge py-12">
                     <div className="text-center">
                         <p className="text-metal-text/80 mb-4">Not sure which package fits? Book a discovery call and we'll walk through your needs.</p>
                         <a href="/contact" className="inline-block rounded-button border border-gold-g1/40 shadow-gold-emboss px-6 py-3 text-sm font-semibold text-gold-g0 hover:bg-graphite-800 transition-colors">

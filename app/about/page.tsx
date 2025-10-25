@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import type { Metadata } from 'next';
+import Container from '@/components/ui/Container';
 
 export const metadata: Metadata = {
     title: 'About',
@@ -20,20 +21,20 @@ export default function AboutPage() {
         <>
             <Header />
             <main className="relative z-content">
-                <section className="max-w-7xl mx-auto px-4 py-16">
+                <section className="container-edge py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">
                         About Orion Ascend
                     </h1>
                     <p className="mt-4 text-center text-metal-text/80 max-w-3xl mx-auto">We acquire, improve, and recycle high‑intent web assets—and we also build and revamp client sites to generate qualified leads.</p>
                 </section>
 
-                <section className="max-w-4xl mx-auto px-4 py-12 space-y-6 text-metal-text/80">
+                <section className="container-edge max-w-4xl py-12 space-y-6 text-metal-text/80">
                     <p>Ascend improves assets with fast UX, programmatic SEO, and conversion design—then monetizes or routes qualified leads to <a className="text-pulse-cyan hover:text-pulse-hover" href="https://orionintelligenceagency.com" target="_blank" rel="noreferrer">Orion Intelligence Agency</a> for AI‑bot deployments and retainers.</p>
                     <p>When an asset matures, we recycle (hold or flip) and reinvest into the next build. For clients, we offer two tracks: revamp your current site or build a high‑value lead‑gen property from scratch.</p>
                 </section>
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
-                    <div className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-8">
+                <section className="container-edge py-12">
+                    <div className="surface-card p-8">
                         <h2 className="text-2xl text-gold-gradient font-semibold mb-4 text-center">Our Principles</h2>
                         <div className="grid md:grid-cols-3 gap-6 mt-8">
                             <div className="text-center">

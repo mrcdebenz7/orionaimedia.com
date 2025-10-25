@@ -6,6 +6,7 @@ import { caseStudySchema } from '@/lib/schema';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimateInClient from '@/components/AnimateInClient';
+import Container from '@/components/ui/Container';
 
 export const metadata: Metadata = {
     title: 'Work',
@@ -65,7 +66,7 @@ export default function WorkPage() {
         <>
             <Header />
             <main className="relative z-content">
-                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-16">
+                <AnimateInClient as="section" className="container-edge py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">
                         Work
                     </h1>
@@ -74,14 +75,14 @@ export default function WorkPage() {
                     </p>
                 </AnimateInClient>
 
-                <section className="max-w-7xl mx-auto px-4 py-12">
+                <section className="container-edge py-12">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {[
                             { id: 'alpha', title: 'Homepage Revamp', alt: 'Case Alpha — Homepage Revamp (demo metrics)' },
                             { id: 'beta', title: 'Services Clarity', alt: 'Case Beta — Services Clarity (demo metrics)' },
                             { id: 'gamma', title: 'Method Readability', alt: 'Case Gamma — Method Readability (demo metrics)' }
                         ].map((c) => (
-                            <AnimateInClient key={c.id} className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-6 hover:border-pulse-hover/60 transition-colors">
+                            <AnimateInClient key={c.id} className="surface-card p-6 hover:border-pulse-hover/60 transition-colors">
                                 <div className="text-xs text-pulse-cyan uppercase tracking-wide mb-2">Case Study</div>
                                 <h3 className="text-xl text-metal-text/90 font-semibold mb-3">{c.title}</h3>
                                 <Link href={`/work/case-${c.id}`} className="block">
