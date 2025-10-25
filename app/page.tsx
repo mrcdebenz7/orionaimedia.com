@@ -37,7 +37,7 @@ export default function HomePage() {
                                 <span className="h-1.5 w-1.5 rounded-full bg-gold-g1 animate-sparkle [animation-delay:.35s]" />
                                 <span className="h-1.5 w-1.5 rounded-full bg-gold-g2 animate-sparkle [animation-delay:.7s]" />
                             </div>
-                            <h1 className="gold-emboss text-4xl md:text-6xl lg:text-7xl leading-tight tracking-[0.02em]">ORION ASCEND</h1>
+                            <h1 className="gold-emboss text-4xl md:text-6xl lg:text-7xl leading-tight tracking-[0.02em]" aria-label="Orion Ascend Media">ORION ASCEND</h1>
                             <div className="mt-2 text-royal-shade/80 tracking-widest" style={{ fontFamily: 'Cinzel, ui-serif' }}>MEDIA</div>
                         </div>
                         <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-metal-text/90">

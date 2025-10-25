@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { track } from '@/lib/track';
 
 export default function Header() {
@@ -22,10 +23,11 @@ export default function Header() {
         ['About', '/about'],
         ['Contact', '/contact']
     ] as const;
+    const pathname = usePathname();
     return (
         <header className="sticky top-0 z-header backdrop-blur bg-graphite-900/70 border-b border-royal-shade/30">
             <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-3 group">
+                <Link href="/" className="flex items-center gap-3 group" aria-label="Orion Ascend Media — Home">
                     <svg width="32" height="32" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                         <defs>
                             <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -50,22 +52,28 @@ export default function Header() {
                         ORION ASCEND
                     </span>
                 </Link>
-                <nav className="hidden md:flex items-center gap-6">
-                    {nav.map(([label, href]) => (
-                        <Link
-                            key={href}
-                            href={href}
-                            className="text-sm metallic hover:text-pulse-hover transition-colors"
-                        >
-                            {label}
-                        </Link>
-                    ))}
+                <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
+                    {nav.map(([label, href]) => {
+                        const active = pathname === href;
+                        return (
+                            <Link
+                                key={href}
+                                href={href}
+                                aria-current={active ? 'page' : undefined}
+                                className={`text-sm metallic hover:text-pulse-hover transition-colors${active ? ' text-gold-g0' : ''}`}
+                            >
+                                {label}
+                            </Link>
+                        );
+                    })}
                 </nav>
                 <button
                     className="md:hidden rounded-md px-3 py-2 border border-royal-shade/50"
+                    type="button"
                     onClick={() => setOpen(!open)}
                     aria-expanded={open}
                     aria-controls="mobile-nav"
+                    aria-label="Toggle menu"
                 >
                     Menu
                 </button>
@@ -80,17 +88,21 @@ export default function Header() {
                 </div>
             </div>
             {open && (
-                <div id="mobile-nav" className="md:hidden px-4 pb-4 grid gap-2">
-                    {nav.map(([label, href]) => (
-                        <Link
-                            key={href}
-                            href={href}
-                            className="rounded-md px-3 py-2 bg-graphite-800/70 hover:bg-graphite-800 border border-royal-shade/40"
-                            onClick={() => setOpen(false)}
-                        >
-                            {label}
-                        </Link>
-                    ))}
+                <div id="mobile-nav" className="md:hidden px-4 pb-4 grid gap-2" aria-label="Mobile navigation">
+                    {nav.map(([label, href]) => {
+                        const active = pathname === href;
+                        return (
+                            <Link
+                                key={href}
+                                href={href}
+                                aria-current={active ? 'page' : undefined}
+                                className={`rounded-md px-3 py-2 bg-graphite-800/70 hover:bg-graphite-800 border border-royal-shade/40${active ? ' border-pulse-hover/60' : ''}`}
+                                onClick={() => setOpen(false)}
+                            >
+                                {label}
+                            </Link>
+                        );
+                    })}
                 </div>
             )}
         </header>
