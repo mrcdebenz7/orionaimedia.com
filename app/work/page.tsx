@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { caseStudySchema } from '@/lib/schema';
 import Image from 'next/image';
 import Link from 'next/link';
+import AnimateInClient from '@/components/AnimateInClient';
 
 export const metadata: Metadata = {
     title: 'Work',
@@ -64,14 +65,14 @@ export default function WorkPage() {
         <>
             <Header />
             <main className="relative z-content">
-                <section className="max-w-7xl mx-auto px-4 py-16">
+                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">
                         Work
                     </h1>
                     <p className="mt-4 text-center text-metal-text/80 max-w-2xl mx-auto">
                         Measurable outcomes across content, creative, and distribution.
                     </p>
-                </section>
+                </AnimateInClient>
 
                 <section className="max-w-7xl mx-auto px-4 py-12">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -80,7 +81,7 @@ export default function WorkPage() {
                             { id: 'beta', title: 'Services Clarity', alt: 'Case Beta — Services Clarity (demo metrics)' },
                             { id: 'gamma', title: 'Method Readability', alt: 'Case Gamma — Method Readability (demo metrics)' }
                         ].map((c) => (
-                            <div key={c.id} className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-6 hover:border-pulse-hover/60 transition-colors">
+                            <AnimateInClient key={c.id} className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-6 hover:border-pulse-hover/60 transition-colors">
                                 <div className="text-xs text-pulse-cyan uppercase tracking-wide mb-2">Case Study</div>
                                 <h3 className="text-xl text-metal-text/90 font-semibold mb-3">{c.title}</h3>
                                 <Link href={`/work/case-${c.id}`} className="block">
@@ -101,7 +102,7 @@ export default function WorkPage() {
                                     type="application/ld+json"
                                     dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema({ name: c.title, description: c.alt, url: `https://www.orionaimedia.com/work` })) }}
                                 />
-                            </div>
+                            </AnimateInClient>
                         ))}
                     </div>
                     <p className="text-xs text-metal-text/60 mt-6">Metrics shown are demo placeholders for illustration.</p>

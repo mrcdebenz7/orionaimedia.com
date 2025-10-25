@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import AnimateInClient from '@/components/AnimateInClient';
 
 export const metadata: Metadata = {
     title: 'Design Examples',
@@ -31,23 +32,25 @@ export default function DesignsPage() {
         <>
             <Header />
             <main className="relative z-content">
-                <section className="max-w-7xl mx-auto px-4 py-16">
+                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">
                         Design Examples
                     </h1>
                     <p className="mt-4 text-center text-metal-text/80 max-w-3xl mx-auto">
                         A sample of UI designs and brand applications. Drop your final images into <code className="px-1 rounded bg-graphite-800 border border-royal-shade/40">public/</code> and update the gallery items here.
                     </p>
-                </section>
+                </AnimateInClient>
 
                 <section className="max-w-7xl mx-auto px-4 pb-16">
                     <div className="small-caps text-gold-g1/80 mb-4">Gallery</div>
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        {designs.map((item) => (
-                            <a
+                        {designs.map((item, i) => (
+                            <AnimateInClient
                                 key={item.title}
-                                href={item.href || '#'}
+                                as="a"
                                 className="group rounded-panel border border-royal-shade/40 bg-graphite-800/70 overflow-hidden hover:border-pulse-hover/60 transition-colors"
+                                href={item.href || '#'}
+                                delay={0.05 * i}
                             >
                                 <div className="aspect-video relative bg-graphite-900">
                                     <Image
@@ -63,7 +66,7 @@ export default function DesignsPage() {
                                     <div className="text-metal-text/90 font-semibold">{item.title}</div>
                                     <p className="mt-2 text-sm text-metal-text/70">{item.description}</p>
                                 </div>
-                            </a>
+                            </AnimateInClient>
                         ))}
                     </div>
                 </section>

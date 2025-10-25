@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import AnimateInClient from '@/components/AnimateInClient';
 
 export const metadata: Metadata = {
     title: 'Insights',
@@ -36,29 +37,25 @@ export default function InsightsPage() {
                 }}
             />
             <main className="relative z-content">
-                <section className="max-w-7xl mx-auto px-4 py-16">
+                <AnimateInClient as="section" className="max-w-7xl mx-auto px-4 py-16">
                     <h1 className="gold-emboss text-3xl md:text-5xl tracking-[0.02em] text-center">
                         Insights
                     </h1>
                     <p className="mt-4 text-center text-metal-text/80 max-w-2xl mx-auto">
                         Essays and breakdowns on content systems, creative testing, and channel growth.
                     </p>
-                </section>
+                </AnimateInClient>
 
                 <section className="max-w-7xl mx-auto px-4 py-12">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        {posts.map((post) => (
-                            <Link
-                                key={post.slug}
-                                href={`/insights/${post.slug}`}
-                                className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-6 hover:border-pulse-hover/60 transition-colors"
-                            >
+                        {posts.map((post, i) => (
+                            <AnimateInClient key={post.slug} as={Link as any} href={`/insights/${post.slug}`} className="rounded-panel border border-royal-shade/40 bg-graphite-800/70 p-6 hover:border-pulse-hover/60 transition-colors" delay={0.05 * i}>
                                 <div className="text-xs text-pulse-cyan uppercase tracking-wide mb-2">
                                     {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                                 </div>
                                 <h3 className="text-xl text-metal-text/90 font-semibold mb-3">{post.title}</h3>
                                 <p className="text-sm text-metal-text/70">{post.excerpt}</p>
-                            </Link>
+                            </AnimateInClient>
                         ))}
                     </div>
                 </section>
