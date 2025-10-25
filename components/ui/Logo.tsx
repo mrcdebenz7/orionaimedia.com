@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Logo({ className = 'h-8 w-8' }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+    <svg className={className} viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
         <linearGradient id="goldGradUi" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#FFF1C2" />
